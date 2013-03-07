@@ -1,5 +1,8 @@
 package org.seerc.relate.relatweet.naive;
 
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
+
 public class NaiveTweetTimelineMain {
 
 
@@ -7,7 +10,9 @@ public class NaiveTweetTimelineMain {
 		TweetTimelineObservable observable = new TweetTimelineObservable();
 		TweetTimelineObserver observer = new TweetTimelineObserver();
 		observable.addObserver(observer);
-		observable.execute();		
+		TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
+		twitterStream.addListener(observable);
+		twitterStream.sample();
 	}
 
 }
