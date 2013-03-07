@@ -1,0 +1,199 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.seerc.relate</groupId>
+	<artifactId>som</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>RELATE SOCIAL MEDIA, library</name>
+	<packaging>jar</packaging><!-- Only for local testing, package is jar -->
+	<description>RELATE SOCIAL MEDIA, library</description>
+	<properties>
+		<org.springframework.version>2.5</org.springframework.version>
+		<scala.version>2.8.0</scala.version>
+	</properties>
+
+
+
+<!--Commons-->
+ <dependencies>
+     	 <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.1</version>
+	      <type>jar</type>
+	      <scope>test</scope>
+	      <optional>true</optional>
+	    </dependency>
+	  <dependency>
+	      <groupId>log4j</groupId>
+	      <artifactId>log4j</artifactId>
+	      <version>1.2.14</version>
+	  </dependency>
+	<dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>1.0.3</version>
+	</dependency>
+
+<!--Spring
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+-->
+
+<!--Jena
+		<dependency>
+			<groupId>com.hp.hpl.jena</groupId>
+			<artifactId>jena</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hp.hpl.jena</groupId>
+			<artifactId>arq</artifactId>
+			<version>2.8.7</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.geonames</groupId>
+			<artifactId>geonames</artifactId>
+			<version>1.0</version>
+		</dependency>
+-->
+
+<!--Lucene
+		<dependency>
+		 	<groupId>org.apache.solr</groupId>
+			<artifactId>solr-core</artifactId> 
+			<version>1.4.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+-->
+	</dependencies>
+
+
+
+	<repositories>
+		<repository>
+			<id>java.net</id>
+			<name>java.net Maven Repository</name>
+			<url>https://maven-repository.dev.java.net/nonav/repository</url>
+			<layout>legacy</layout>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for maven</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+		<repository>
+			<id>sonatype-repo</id>
+			<name>Sonatype Release Repo</name>
+			<url>http://oss.sonatype.org/content/repositories/sourceforge-releases</url>
+		</repository>
+		<repository>
+			<id>com.hp.hpl.jena</id>
+			<name>JENA Maven Repo</name>
+			<url>http://openjena.org/repo</url>
+		</repository>
+	</repositories>
+
+	  <pluginRepositories>
+	  <pluginRepository>  
+		<id>mc-release</id>  
+		<name>Local Maven repository of releases</name>  
+		<url>http://mc-repo.googlecode.com/svn/maven2/releases</url>  
+		<snapshots>  
+		    <enabled>false</enabled>  
+		</snapshots>  
+		<releases>  
+		    <enabled>true</enabled>  
+		</releases>  
+	    </pluginRepository> 
+
+	  </pluginRepositories>
+	<issueManagement>
+		<system>GIT hub</system>
+		<url>https://github.com/chemaar/seqos</url>
+	</issueManagement>
+	<licenses>
+		<license>
+			<name>GNU LESSER GENERAL PUBLIC LICENSE</name>
+			<url>http://www.gnu.org/licenses/lgpl.html</url>
+			<distribution>repo</distribution>
+			<comments />
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>chema_ar</id>
+			<name>Dr. Jose María Alvarez Rodriguez</name>
+			<email>chema.ar@gmail.com</email>
+			<url></url>
+			<organization />
+			<organizationUrl />
+			<roles>
+				<role>Project Admin</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+	</developers>
+	
+
+
+<!--Build plugins -->
+	<build>
+		<plugins>
+		 	<plugin>  
+				<groupId>com.google.code.maven-license-plugin</groupId>  
+				<artifactId>maven-license-plugin</artifactId>  
+				<configuration>  
+				    <header>src/main/config/copyright.txt</header>  
+					<excludes>  
+						<exclude>**/LICENSE.txt</exclude>  
+						<exclude>**/COPYING.LESSER</exclude>  
+						<exclude>**/COPYING</exclude>  
+						<exclude>**/resources/**</exclude>  
+					    </excludes>  
+					    <mapping>  
+						<jspx>xml</jspx>  
+					    </mapping>  
+					<executions>  
+					    <execution>  
+						<goals>  
+						    <goal>check</goal>  
+						</goals>  
+					    </execution>  
+					</executions>  
+				</configuration>  
+		   	 </plugin>  
+		   
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<encoding>utf-8</encoding>
+					<showDeprecation>false</showDeprecation>
+				</configuration>
+			</plugin>
+      
+   		</plugins>
+	</build>
+</project>
