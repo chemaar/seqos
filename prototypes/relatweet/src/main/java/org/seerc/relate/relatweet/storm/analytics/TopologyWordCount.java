@@ -19,36 +19,40 @@ import backtype.storm.tuple.Values;
 
 
 public class TopologyWordCount {    
+	public final static String REDIS_HOST = "localhost";
+	public final static int REDIS_PORT = 6379;
+	public static boolean testing = false;
+	public final static String QUEUE_NAME = "tweet";
     
-    public static class WordCount extends BaseBasicBolt {
-    	protected static Logger logger = Logger.getLogger(WordCount.class);
-        Map<String, Integer> counts = new HashMap<String, Integer>();
-
-        
-        @Override
-		public void cleanup() {
-			super.cleanup();			
-			for(Map.Entry<String, Integer> entry : counts.entrySet()){
-				logger.info(entry.getKey()+": "+entry.getValue());
-			}
-
-		}
-
-
-		public void execute(Tuple tuple, BasicOutputCollector collector) {
-            String word = tuple.getString(0);
-            Integer count = counts.get(word);
-            if(count==null) count = 0;
-            count++;
-            counts.put(word, count);
-            collector.emit(new Values(word, count));
-        }
-
-        
-        public void declareOutputFields(OutputFieldsDeclarer declarer) {
-            declarer.declare(new Fields("word", "count"));
-        }
-    }
+//    public static class WordCount extends BaseBasicBolt {
+//    	protected static Logger logger = Logger.getLogger(WordCount.class);
+//        Map<String, Integer> counts = new HashMap<String, Integer>();
+//
+//        
+//        @Override
+//		public void cleanup() {
+//			super.cleanup();			
+//			for(Map.Entry<String, Integer> entry : counts.entrySet()){
+//				logger.info(entry.getKey()+": "+entry.getValue());
+//			}
+//
+//		}
+//
+//
+//		public void execute(Tuple tuple, BasicOutputCollector collector) {
+//            String word = tuple.getString(0);
+//            Integer count = counts.get(word);
+//            if(count==null) count = 0;
+//            count++;
+//            counts.put(word, count);
+//            collector.emit(new Values(word, count));
+//        }
+//
+//        
+//        public void declareOutputFields(OutputFieldsDeclarer declarer) {
+//            declarer.declare(new Fields("word", "count"));
+//        }
+//    }
     
     public static void main(String[] args) throws Exception {
         
@@ -58,11 +62,13 @@ public class TopologyWordCount {
         
         builder.setBolt("split", new MySplitSentence(), 8)
                  .shuffleGrouping("spout");
-        builder.setBolt("count", new WordCount(), 12)
+        builder.setBolt("count", new RedisWordCount(), 12)
                  .fieldsGrouping("split", new Fields("word"));
 
         Config conf = new Config();
         conf.setDebug(true);
+        conf.put("QUEUE_NAME", QUEUE_NAME);
+        conf.put("REDIS_HOST", REDIS_HOST);
 
         
         if(args!=null && args.length > 0) {
@@ -75,7 +81,7 @@ public class TopologyWordCount {
             LocalCluster cluster = new LocalCluster();
             cluster.submitTopology("word-count", conf, builder.createTopology());
         
-            Thread.sleep(10000);
+            Thread.sleep(40000);
 
             cluster.shutdown();
         }

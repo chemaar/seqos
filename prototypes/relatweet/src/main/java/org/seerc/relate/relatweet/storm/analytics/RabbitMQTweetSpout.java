@@ -25,13 +25,13 @@ public class RabbitMQTweetSpout extends BaseRichSpout {
 
 
 	public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-		 try {
-			 ConnectionFactory factory = new ConnectionFactory();
-			 factory.setHost("localhost");
-			 Connection connection = factory.newConnection();
-			 this.channel = connection.createChannel();
-			 this.consumer = new QueueingConsumer(this.channel);
-			 this.channel.basicConsume((String) conf.get("QUEUE_NAME"), true, consumer);
+		try {
+			ConnectionFactory factory = new ConnectionFactory();
+			factory.setHost("localhost");
+			Connection connection = factory.newConnection();
+			this.channel = connection.createChannel();
+			this.consumer = new QueueingConsumer(this.channel);
+			this.channel.basicConsume((String) conf.get("QUEUE_NAME"), true, consumer);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -39,25 +39,23 @@ public class RabbitMQTweetSpout extends BaseRichSpout {
 	}
 
 
+	//FIXME: Use spout for amq
 	public void nextTuple() {		    
-		    while (true) {
-		      QueueingConsumer.Delivery delivery;
+		while (true) {
+			QueueingConsumer.Delivery delivery;
 			try {
 				delivery = consumer.nextDelivery();
 				String message = new String(delivery.getBody());
-			    collector.emit(new Values(message));
+				collector.emit(new Values(message));
 			} catch (ShutdownSignalException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ConsumerCancelledException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
-		    }
-		
+		}
+
 	}
 
 

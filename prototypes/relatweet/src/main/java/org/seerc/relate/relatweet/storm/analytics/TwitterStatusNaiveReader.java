@@ -12,7 +12,7 @@ public class TwitterStatusNaiveReader {
 		  String [] messages = {
 			"This is a first",
 			"message to ",
-			"test the whole architecture."
+			"test the whole architecture in which test is a word."
 		  };
 		  ConnectionFactory factory = new ConnectionFactory();
 		  factory.setHost("localhost");
