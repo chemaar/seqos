@@ -1,5 +1,7 @@
 package org.seerc.relate.relatweet.storm.analytics;
 
+import java.util.Set;
+
 import redis.clients.jedis.Jedis;
 
 public class RedisNaiveWriter {
@@ -12,5 +14,10 @@ public class RedisNaiveWriter {
 		jedis.set("foo", "bar");
 		String value = jedis.get("foo");
 		System.out.println(value);
+		jedis.configResetStat();
+		Set<String> keys = jedis.keys("*");
+		for(String key:keys){
+			System.out.println(key);
+		}
 	}
 }

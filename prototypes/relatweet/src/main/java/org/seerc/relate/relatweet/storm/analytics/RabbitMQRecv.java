@@ -6,7 +6,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.QueueingConsumer;
 
 public class RabbitMQRecv {
-	private final static String QUEUE_NAME = "hello";
+	private final static String QUEUE_NAME = "tweet";
 	 public static void main(String[] argv)
 		      throws java.io.IOException,
 		             java.lang.InterruptedException {

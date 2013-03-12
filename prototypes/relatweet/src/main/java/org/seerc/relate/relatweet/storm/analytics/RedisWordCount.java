@@ -1,12 +1,10 @@
 package org.seerc.relate.relatweet.storm.analytics;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
 import redis.clients.jedis.Jedis;
-
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;
@@ -25,6 +23,7 @@ public class RedisWordCount extends BaseBasicBolt {
 	public void prepare(Map stormConf, TopologyContext context) {
 		super.prepare(stormConf, context);
 		this.jedis = new Jedis((String) stormConf.get("REDIS_HOST"));
+		//FIXME: Remove previous
 	}
 
 
