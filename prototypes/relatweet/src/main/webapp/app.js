@@ -49,46 +49,28 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-function get_all_data(fn) {
-	console.log("Get all data");
-	console.log(client.get("test"));
-	var words = {};
-    client.smembers('words', function(err, resp){
-   		var ids = resp;
-		var readed = 0;
-		for(var i = 0 ; i < ids.length ; i++) {
-			client.get(ids[i], function(err, resp) {
-				words[ids[readed]] = JSON.parse(resp);
-				readed ++;
-				if(readed == ids.length)
-					fn(words);
-			});
-		}
-    });
-}
-
-
 
 app.get('/', function(req, res) {
-	var data = {}
-	
-	client.hkeys("hash key", function (err, replies) {
-	    if (err) {
-	        return console.error("error response - " + err);
-	    }
-
-	    console.log(replies.length + " replies:");
-	    replies.forEach(function (reply, i) {
-	        console.log("    " + i + ": " + reply);
-	    });
+	var data = {};
+	client.keys('*', function(err, resp){
+		var ids = resp;
+		var readed = 0;
+		for(var i = 0 ; i < ids.length ; i++) {
+			client.get(ids[i], function (err, reply) {
+		    	    data[ids[readed]] = reply.toString();
+		    	    readed ++;
+					if(readed == ids.length)
+					    res.render('index.jade', {data:data});
+		         });
+		}
 	});
-	
-	res.render('index.jade', {data:data});
-	
 });
 
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
 
-console.log(client.get("test"));
+
+
+
+
