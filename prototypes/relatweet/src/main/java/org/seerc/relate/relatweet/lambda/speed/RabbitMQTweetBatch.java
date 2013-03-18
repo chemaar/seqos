@@ -5,11 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import storm.trident.operation.TridentCollector;
+import storm.trident.spout.IBatchSpout;
 import backtype.storm.Config;
-import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 
 import com.rabbitmq.client.Channel;
@@ -19,18 +18,18 @@ import com.rabbitmq.client.ConsumerCancelledException;
 import com.rabbitmq.client.QueueingConsumer;
 import com.rabbitmq.client.ShutdownSignalException;
 
-public class RabbitMQTweetSpout extends BaseRichSpout{
-	SpoutOutputCollector collector;
+public class RabbitMQTweetBatch implements IBatchSpout {
+
+	Fields fields;
 	private QueueingConsumer consumer;
 	private Channel channel;
 
 
-	public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-		configure(conf, collector);
+	public RabbitMQTweetBatch(Fields fields) {
+		this.fields = fields;
 	}
 
-
-	private void configure(Map conf, SpoutOutputCollector collector) {
+	private void configure(Map conf) {
 		try {
 			ConnectionFactory factory = new ConnectionFactory();
 			factory.setHost("localhost");
@@ -41,12 +40,16 @@ public class RabbitMQTweetSpout extends BaseRichSpout{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.collector = collector;
 	}
 
 
-	//FIXME: Use spout for amq
-	public void nextTuple() {
+	public void open(Map conf, TopologyContext context) {
+		configure(conf);
+	}
+
+
+	public void emitBatch(long batchId, TridentCollector collector) {
+		//Utils.sleep(2000);
 		while (true) {
 			QueueingConsumer.Delivery delivery;
 			try {
@@ -67,35 +70,24 @@ public class RabbitMQTweetSpout extends BaseRichSpout{
 	}
 
 
+	public void ack(long batchId) {
+
+	}
+
+
 	public void close() {
-
 	}
 
 
-	public Map<String, Object> getComponentConfiguration() {
-		Config ret = new Config();
-		ret.setMaxTaskParallelism(1);
-		return ret;
-	}    
-
-
-	public void ack(Object id) {
+	public Map getComponentConfiguration() {
+		Config conf = new Config();
+		conf.setMaxTaskParallelism(1);
+		return conf;
 	}
 
 
-	public void fail(Object id) {
+	public Fields getOutputFields() {
+		return fields;
 	}
-
-
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("tweet"));
-	}
-
-
-	public void open(Map conf, TopologyContext context) {
-		this.configure(conf, collector);
-		
-	}
-
 
 }

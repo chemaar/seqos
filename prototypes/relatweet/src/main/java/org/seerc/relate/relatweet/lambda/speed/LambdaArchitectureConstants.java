@@ -5,4 +5,5 @@ public class LambdaArchitectureConstants {
 	public final static int REDIS_PORT = 6379;
 	public static boolean TESTING = Boolean.FALSE;
 	public final static String QUEUE_NAME = "tweet";
+	public final static String TABLESPACE = "words";
 }

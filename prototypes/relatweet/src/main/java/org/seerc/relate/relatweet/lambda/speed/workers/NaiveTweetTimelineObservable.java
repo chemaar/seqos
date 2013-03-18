@@ -24,12 +24,7 @@ public class NaiveTweetTimelineObservable extends Observable {
 	public  void execute() {
 		int size = this.messages.size()-1;
 		while (true){
-			try {
-				sendNotification("@" + "naive" + " - " + this.messages.get(rand.nextInt(size)));				
-				Thread.currentThread().sleep(2000);
-			} catch (InterruptedException e) {
-				logger.error(e);
-			}
+			sendNotification(this.messages.get(rand.nextInt(size)));
 		}
 		
 	}
