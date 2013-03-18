@@ -57,10 +57,13 @@ app.get('/', function(req, res) {
 		var readed = 0;
 		for(var i = 0 ; i < ids.length ; i++) {
 			client.get(ids[i], function (err, reply) {
-		    	    data[ids[readed]] = reply.toString();
+			    if(reply != null){
+			    data[ids[readed]] = reply.toString();
 		    	    readed ++;
 					if(readed == ids.length)
 					    res.render('index.jade', {data:data});
+
+}
 		         });
 		}
 	});

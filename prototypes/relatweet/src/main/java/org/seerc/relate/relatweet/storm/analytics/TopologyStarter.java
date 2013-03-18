@@ -13,7 +13,7 @@ import backtype.storm.utils.Utils;
 import com.rapportive.storm.amqp.QueueDeclaration;
 import com.rapportive.storm.amqp.SharedQueueWithBinding;
 
-public class TopologyStarter {
+public class TopologyStarter implements LAMBDA_ARCHITECTURE_CONSTANTS {
 	public final static String REDIS_HOST = "localhost";
 	public final static int REDIS_PORT = 6379;
 	public static boolean testing = false;
