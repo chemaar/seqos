@@ -46,9 +46,8 @@ c)Running the Server Layer:
 3-Merge views
 
 4-Show results
-4.1 mvn clean install
-4.2 mvn dependency:copy-dependencies
-4.3 mvn exec:exec -Dexec.executable="java" -Dexec.args="-cp target/classes:target/dependency/* FIXME-NAMED CLASS"
+
+http://localhost:3000
 
 
 Notes:
