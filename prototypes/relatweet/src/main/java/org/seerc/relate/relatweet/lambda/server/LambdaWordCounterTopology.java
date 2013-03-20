@@ -35,7 +35,8 @@ import com.splout.db.qnode.beans.QueryStatus;
 public class LambdaWordCounterTopology {
 
 
-	private static final int MAX_OCCURRS = 500;
+	private static final int MIN_RANGE = 600;
+	private static final int MAX_RANGE = 700;
 
 	public static class LambdaMerge extends BaseFunction {
 
@@ -153,8 +154,10 @@ public class LambdaWordCounterTopology {
 			//Publish en redis
 			jedis.set(targetWord, value);
 			//Simulate alert
-			if(Integer.valueOf(value) > MAX_OCCURRS){
+			if(Integer.valueOf(value) > MIN_RANGE && Integer.valueOf(value)<MAX_RANGE){
 				jedis.set("ALERT", "ACTIVE");
+			}else{
+				jedis.set("ALERT", "INACTIVE");
 			}
 			Thread.sleep(1000);
 		}
