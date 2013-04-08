@@ -17,6 +17,7 @@ public class TweetStreamMain {
 	 */
 	
 		 public static void main(String[] args) throws TwitterException {
+			 //Remember to configure twitter4j.properties
 		        TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
 		        StatusListener listener = new StatusListener() {
 		 
