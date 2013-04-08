@@ -1,0 +1,6 @@
+1) Run RabbitMQ:  sudo rabbitmq-server
+2) Run Redis: redis-server
+3) Run app in node.js: node src/main/webapp/app.js
+4) Run Topology
+5) Run Twitter stream reader 
+6) Show results in browser: localhost:3000

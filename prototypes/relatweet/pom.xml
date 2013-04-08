@@ -14,84 +14,204 @@
 
 
 
-<!--Commons-->
- <dependencies>
-     	 <dependency>
-	      <groupId>junit</groupId>
-	      <artifactId>junit</artifactId>
-	      <version>4.1</version>
-	      <type>jar</type>
-	      <scope>test</scope>
-	      <optional>true</optional>
-	    </dependency>
-	  <dependency>
-	      <groupId>log4j</groupId>
-	      <artifactId>log4j</artifactId>
-	      <version>1.2.14</version>
-	  </dependency>
-	<dependency>
-		<groupId>commons-logging</groupId>
-		<artifactId>commons-logging</artifactId>
-		<version>1.0.3</version>
-	</dependency>
-
-<!--Spring
+	<!--Commons -->
+	<dependencies>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
--->
-
-<!--Jena
-		<dependency>
-			<groupId>com.hp.hpl.jena</groupId>
-			<artifactId>jena</artifactId>
-			<version>2.6.4</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.1</version>
+			<type>jar</type>
+			<scope>test</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.hp.hpl.jena</groupId>
-			<artifactId>arq</artifactId>
-			<version>2.8.7</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
 		</dependency>
 		<dependency>
-			<groupId>net.sf.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>2.0</version>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+
+		<!--Spring <dependency> <groupId>org.springframework</groupId> <artifactId>spring</artifactId> 
+			<version>${org.springframework.version}</version> </dependency> -->
+
+		<!--Jena <dependency> <groupId>com.hp.hpl.jena</groupId> <artifactId>jena</artifactId> 
+			<version>2.6.4</version> </dependency> <dependency> <groupId>com.hp.hpl.jena</groupId> 
+			<artifactId>arq</artifactId> <version>2.8.7</version> </dependency> <dependency> 
+			<groupId>net.sf.opencsv</groupId> <artifactId>opencsv</artifactId> <version>2.0</version> 
+			</dependency> <dependency> <groupId>org.geonames</groupId> <artifactId>geonames</artifactId> 
+			<version>1.0</version> </dependency> -->
+
+		<!--Lucene <dependency> <groupId>org.apache.solr</groupId> <artifactId>solr-core</artifactId> 
+			<version>1.4.1</version> </dependency> <dependency> <groupId>org.apache.lucene</groupId> 
+			<artifactId>lucene-core</artifactId> <version>2.9.0</version> </dependency> -->
+
+		<!-- From Twitter -->
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-core</artifactId>
+			<version>[3.0,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-stream</artifactId>
+			<version>[3.0,)</version>
+		</dependency>
+
+		<!-- From Storm -->
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.geonames</groupId>
-			<artifactId>geonames</artifactId>
-			<version>1.0</version>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.0</version>
+			<scope>test</scope>
 		</dependency>
--->
-
-<!--Lucene
 		<dependency>
-		 	<groupId>org.apache.solr</groupId>
-			<artifactId>solr-core</artifactId> 
-			<version>1.4.1</version>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert-core</artifactId>
+			<version>2.0M8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>storm</groupId>
+			<artifactId>storm</artifactId>
+			<version>0.8.2</version>
+			<!-- keep storm out of the jar-with-dependencies -->
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>13.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
 		</dependency>
 
+		<!-- From a real life example -->
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-core</artifactId>
-			<version>2.9.0</version>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.1.0</version>
 		</dependency>
--->
 
-     <dependency>
-           <groupId>org.twitter4j</groupId>
-           <artifactId>twitter4j-core</artifactId>
-           <version>[3.0,)</version>
-       </dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy.modules.http-builder</groupId>
+			<artifactId>http-builder</artifactId>
+			<version>0.5.2</version>
+		</dependency>
 
-     <dependency>
-           <groupId>org.twitter4j</groupId>
-           <artifactId>twitter4j-stream</artifactId>
-           <version>[3.0,)</version>
-       </dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<!-- From RabbitMQ -->
+
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
+		<!-- From Storm RabbitMQ (requires local installation) -->
+		<dependency>
+			<groupId>com.xorlev</groupId>
+			<artifactId>storm-amqp-spout</artifactId>
+			<version>0.2.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<!-- Hadoop -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>1.0.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- dependencies copied from storm-starter and added Splout's java client -->
+
+		<dependency>
+			<groupId>com.splout.db</groupId>
+			<artifactId>splout-javaclient</artifactId>
+			<version>0.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert-core</artifactId>
+			<version>2.0M8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>13.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.rometools</groupId>
+			<artifactId>rome-fetcher</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 
 <!--From Storm -->
 
@@ -143,11 +263,29 @@
 		  </dependency>
 		  
 		  
-</dependencies>
+
+	</dependencies>
+
 
 
 
 	<repositories>
+
+		<repository>
+			<id>github-releases</id>
+			<url>http://oss.sonatype.org/content/repositories/github-releases/</url>
+		</repository>
+		<repository>
+			<id>clojars.org</id>
+			<url>http://clojars.org/repo</url>
+		</repository>
+
+
+		<repository>
+			<id>clojars.org</id>
+			<url>http://clojars.org/repo</url>
+		</repository>
+
 		<repository>
 			<id>java.net</id>
 			<name>java.net Maven Repository</name>
@@ -169,33 +307,40 @@
 			<name>JENA Maven Repo</name>
 			<url>http://openjena.org/repo</url>
 		</repository>
-		  <repository>
-			 <id>twitter4j.org</id>
-			 <name>twitter4j.org Repository</name>
-			 <url>http://twitter4j.org/maven2</url>
-			 <releases>
-			    <enabled>true</enabled>
-			 </releases>
-			 <snapshots>
-			    <enabled>true</enabled>
-			 </snapshots>
-		     </repository>
+		<repository>
+			<id>twitter4j.org</id>
+			<name>twitter4j.org Repository</name>
+			<url>http://twitter4j.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
+			<id>github-releases</id>
+			<url>http://oss.sonatype.org/content/repositories/github-releases/</url>
+		</repository>
+	
+		
 	</repositories>
 
-	  <pluginRepositories>
-	  <pluginRepository>  
-		<id>mc-release</id>  
-		<name>Local Maven repository of releases</name>  
-		<url>http://mc-repo.googlecode.com/svn/maven2/releases</url>  
-		<snapshots>  
-		    <enabled>false</enabled>  
-		</snapshots>  
-		<releases>  
-		    <enabled>true</enabled>  
-		</releases>  
-	    </pluginRepository> 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mc-release</id>
+			<name>Local Maven repository of releases</name>
+			<url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
 
-	  </pluginRepositories>
+	</pluginRepositories>
 	<issueManagement>
 		<system>GIT hub</system>
 		<url>https://github.com/chemaar/seqos</url>
@@ -224,36 +369,36 @@
 			<properties />
 		</developer>
 	</developers>
-	
 
 
-<!--Build plugins -->
+
+	<!--Build plugins -->
 	<build>
 		<plugins>
-		 	<plugin>  
-				<groupId>com.google.code.maven-license-plugin</groupId>  
-				<artifactId>maven-license-plugin</artifactId>  
-				<configuration>  
-				    <header>src/main/config/copyright.txt</header>  
-					<excludes>  
-						<exclude>**/LICENSE.txt</exclude>  
-						<exclude>**/COPYING.LESSER</exclude>  
-						<exclude>**/COPYING</exclude>  
-						<exclude>**/resources/**</exclude>  
-					    </excludes>  
-					    <mapping>  
-						<jspx>xml</jspx>  
-					    </mapping>  
-					<executions>  
-					    <execution>  
-						<goals>  
-						    <goal>check</goal>  
-						</goals>  
-					    </execution>  
-					</executions>  
-				</configuration>  
-		   	 </plugin>  
-		   
+			<plugin>
+				<groupId>com.google.code.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<configuration>
+					<header>src/main/config/copyright.txt</header>
+					<excludes>
+						<exclude>**/LICENSE.txt</exclude>
+						<exclude>**/COPYING.LESSER</exclude>
+						<exclude>**/COPYING</exclude>
+						<exclude>**/resources/**</exclude>
+					</excludes>
+					<mapping>
+						<jspx>xml</jspx>
+					</mapping>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 			</plugin>
@@ -267,7 +412,57 @@
 					<showDeprecation>false</showDeprecation>
 				</configuration>
 			</plugin>
-      
-   		</plugins>
+
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass></mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/hadoop-job.xml</descriptor>
+					</descriptors>
+					<archive>
+						<manifest>
+							<mainClass>org.seerc.relate.relatweet.lambda.batch.WordCount</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
 	</build>
 </project>

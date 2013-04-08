@@ -3,6 +3,8 @@ package org.seerc.relate.relatweet.storm;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
@@ -18,10 +20,21 @@ import backtype.storm.tuple.Values;
 public class TweeterWordCount {    
     
     public static class WordCount extends BaseBasicBolt {
+    	protected static Logger logger = Logger.getLogger(WordCount.class);
         Map<String, Integer> counts = new HashMap<String, Integer>();
 
         
-        public void execute(Tuple tuple, BasicOutputCollector collector) {
+        @Override
+		public void cleanup() {
+			super.cleanup();			
+			for(Map.Entry<String, Integer> entry : counts.entrySet()){
+				logger.info(entry.getKey()+": "+entry.getValue());
+			}
+
+		}
+
+
+		public void execute(Tuple tuple, BasicOutputCollector collector) {
             String word = tuple.getString(0);
             Integer count = counts.get(word);
             if(count==null) count = 0;
