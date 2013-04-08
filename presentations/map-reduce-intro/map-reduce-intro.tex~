@@ -1,0 +1,72 @@
+%
+% main.tex
+%
+
+% notes = hide | show | only
+\documentclass[xcolor=dvipsnames,dvip,notes=show,table]{beamer}
+
+% Para crear una versión 'handout' (impresa)
+%\documentclass[xcolor=pst,dvips,handout,notes=show]{beamer}
+
+\input{cabeceras}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[MapReduce Intro]{Evaluation of the Map Reduce Programming Model}
+\author[Dr. Jose María Álvarez Rodríguez]{\textbf{Introduction and Examples}\\ \vspace{0.3cm} Dr. Jose María Álvarez Rodríguez \\ \vspace{0.3cm} ``Quality Management in Service-based Systems and Cloud Applications'' \\ \vspace{0.3cm} FP7 RELATE-ITN}
+\subtitle{}
+\institute{South East European Research Center}
+
+
+\date{Thessaloniki, 20th of April, 2013}
+
+\begin{document}
+
+\frame{
+\titlepage
+
+}
+
+\frame{
+\tableofcontents
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Programming Model}
+
+\section{Examples}
+
+\section{Applicability}
+
+\section{Conclusions}
+
+\frame{
+\titlepage
+
+}
+
+% \section*{Acknowledgements}
+% \frame{
+%   \frametitle{All have contributed...} 
+% \begin{figure}[!htb]
+% \centering
+%  \includegraphics[width=9cm]{imgs/linkedin}
+% \end{figure}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section*{References}
+%\input{references}
+% 
+% 
+%\section*{Preguntas}
+% \input{preguntas-preparadas}
+
+
+\end{document}
+

@@ -1,0 +1,126 @@
+%
+% cabeceras.tex
+%
+
+%\usepackage[T1]{fontenc}
+
+\definecolor{ZurichBlue}{rgb}{.255,.41,.884}
+
+\beamertemplateshadingbackground{white!10}{white!10}
+
+\usepackage{beamerthemeWarsaw}
+\usepackage{longtable}
+
+%\usecolortheme[named=OliveGreen]{structure} 
+\setbeamertemplate{items}[ball] 
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+\setbeamertemplate{footline}[page number]
+\addtocounter{framenumber}{-1}
+%Handout
+%\usepackage{handoutWithNotes}
+%\usepackage{tikz,times}
+%\pgfpagesuselayout{2 on 1 with notes}[a4paper,border shrink=5mm]
+
+\usepackage{beamerthemeshadow}
+ \useoutertheme[hooks]{tree}
+ 
+% \setbeamertemplate{headline}[default] % The default is just an empty headline.
+% \setbeamertemplate{headline}[infolines theme]
+% \setbeamertemplate{headline}[miniframes theme]
+% \setbeamertemplate{headline}[sidebar theme]
+% \setbeamertemplate{headline}[smoothtree theme]
+% \setbeamertemplate{headline}[smoothbars theme]
+% \setbeamertemplate{headline}[tree]
+\beamertemplatetransparentcovereddynamic
+
+% spanish
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+% diagramas
+%\usepackage{pst-eps,epstopdf}
+\usepackage{pst-node}
+%\usepackage{pst-all}
+\usepackage{pst-blur}
+%\usepackage{pst-tree}
+
+% incrustaciones de código fuente
+\usepackage{listings}
+
+% matemáticas y símbolos
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[right]{eurosym}
+\usepackage{ulem}
+
+% colores
+\usepackage{colortbl}
+
+%\usepackage{algorithm2e}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+
+
+\lstset{%
+  language=XML,
+	basicstyle=\footnotesize\sffamily,
+	keywordstyle=\color{darkred}
+ 	stringstyle=\color{violet}
+ 	commentstyle=\color{blue}
+ 	showspaces=false,
+ 	showtabs=false,
+ 	showstringspaces=false,
+ 	frame=trBL,
+        frameround=tttt,
+        backgroundcolor=\color{lightyellow},
+ 	extendedchars=true,
+ 	numbers=none,
+        aboveskip=0.5cm,
+        belowskip=0.5cm,
+        xleftmargin=1cm,
+        xrightmargin=1cm,
+	breaklines=true
+}
+\definecolor{darkred}{rgb}{0.5, 0, 0}
+\definecolor{violet}{rgb}{1, 0, 1}
+\definecolor{lightyellow}{rgb}{1,1,0.8}
+
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{xspace}
+
+\newcommand{\si}{$\oplus$\xspace}
+\newcommand{\no}{$\ominus$\xspace}
+\newcommand{\na}{$\odot$\xspace}
+
+%Extraer
+\newcommand{\linkeddata}{\textit{Linked Data}\xspace}
+\newcommand{\opendata}{\textit{Open Data}\xspace}
+\newcommand{\lod}{\textit{Linking Open Data}\xspace}
+\newcommand{\ogd}{\textit{Open Government Data}\xspace}
+\newcommand{\datasets}{\textit{datasets}\xspace}
+\newcommand{\dataset}{\textit{dataset}\xspace}
+\newcommand{\provenance}{\textit{provenance}\xspace}
+\newcommand{\trust}{\textit{trust}\xspace}
+\newcommand{\egov}{\textit{e-government}\xspace}
+\newcommand{\pusi}{\textit{Public Sector Information}\xspace}
+\newcommand{\gd}{\textit{Government Data}\xspace}
+\newcommand{\wod}{Web de Datos\xspace}
+\newcommand{\wode}{\textit{Web of Data}\xspace}
+\newcommand{\eproc}{\textit{e-Procurement}\xspace}
+\newcommand{\gld}{\textit{Government Linked Data}\xspace}
+
+\hyphenation{real}
+
+\newrgbcolor{ColorEncabezadoTabla}{0.7 0.7 0.9}
+\newrgbcolor{ColorFila1}{0.8 0.8 0.7}
+\newrgbcolor{ColorFila2}{0.8 0.7 0.8}
+\newrgbcolor{ColorTotal}{0.7 0.9 0.7}
+
+
+% \usepackage{tikz,times}
+% \usetikzlibrary{mindmap,backgrounds}
