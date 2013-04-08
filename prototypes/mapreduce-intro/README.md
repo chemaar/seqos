@@ -19,14 +19,24 @@ $HADOOP_HOME/bin/hadoop jar target/mapreduce-turorial-0.1-SNAPSHOT-job.jar /home
 $HADOOP_HOME/bin/hadoop fs -cat /home/chema/data/output/part-r-00000
 
 
-B-Example:
+B-Example: MinMaxCountDriver
 
 input: /home/chema/data/input-tweet
 output: /home/chema/data/output-b
 
 
-C-Example:
+C-Example: AverageDriver
 
 input: /home/chema/data/input-tweet
 output: /home/chema/data/output-c
+
+D-Example: DistributedGrep
+
+input: /home/chema/data/input-tweet
+output: /home/chema/data/output-c
+
+
+E-Example: TopNDriver
+input: /home/chema/data/input-tweet
+output: /home/chema/data/output-e
 

@@ -18,6 +18,7 @@ public class MRDPUtils {
 	public static Map<String, String> parse(String string) {
 		String [] values = string.split(",");
 		Map<String, String> fields = new HashMap<String,String>(3);
+		System.out.println(string);
 		fields.put(USER_ID, values[0]);
 		fields.put(CREATION_DATE, values[1]);
 		String text = "";
