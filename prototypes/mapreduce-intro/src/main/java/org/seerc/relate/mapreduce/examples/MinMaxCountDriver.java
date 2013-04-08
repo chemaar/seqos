@@ -25,6 +25,12 @@ import org.apache.hadoop.util.GenericOptionsParser;
  * Examples adapted from the book Map/Reduce patterns http://shop.oreilly.com/product/0636920025122.do
  * @author chema
  *
+ * Given a list of tweets in the form: (username, date, text)
+ * 
+ * determine first and last time an user commented and the number of times.
+ *
+ *
+ *
  */
 public class MinMaxCountDriver {
 
@@ -34,33 +40,25 @@ public class MinMaxCountDriver {
 		private Text outUserId = new Text();
 		private MinMaxCountTuple outTuple = new MinMaxCountTuple();
 
-		// This object will format the creation date string into a Date object
-		private final static SimpleDateFormat frmt = new SimpleDateFormat(
-				"yyyy-MM-dd'T'HH:mm:ss.SSS");
-
 		@Override
 		public void map(Object key, Text value, Context context)
 				throws IOException, InterruptedException {
-
 			// Parse the input string into a nice map
 			Map<String, String> parsed = MRDPUtils.parse(value.toString());
-
 			// Grab the "CreationDate" field since it is what we are finding
 			// the min and max value of
-			String strDate = parsed.get("CreationDate");
-
+			String strDate = parsed.get(MRDPUtils.CREATION_DATE);
 			// Grab the “UserID” since it is what we are grouping by
-			String userId = parsed.get("UserId");
-
+			String userId = parsed.get(MRDPUtils.USER_ID);
 			// .get will return null if the key is not there
 			if (strDate == null || userId == null) {
 				// skip this record
 				return;
 			}
-
+		
 			try {
 				// Parse the string into a Date object
-				Date creationDate = frmt.parse(strDate);
+				Date creationDate = MRDPUtils.frmt.parse(strDate);
 
 				// Set the minimum and maximum date values to the creationDate
 				outTuple.setMin(creationDate);

@@ -1,15 +1,11 @@
 package org.seerc.relate.mapreduce.examples;
 
-import org.apache.hadoop.mapreduce.Mapper;
-
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -24,6 +20,19 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
 
+
+/**
+ * Examples adapted from the book Map/Reduce patterns http://shop.oreilly.com/product/0636920025122.do
+ * @author chema
+ *
+ * Given a list of tweets in the form: (username, date, text)
+ * 
+ * determine the average comment length per hour of day.
+ *
+ *
+ *
+ */
+
 public class AverageDriver {
 
 	public static class SOAverageMapper extends
@@ -32,8 +41,6 @@ public class AverageDriver {
 		private IntWritable outHour = new IntWritable();
 		private CountAverageTuple outCountAverage = new CountAverageTuple();
 
-		private final static SimpleDateFormat frmt = new SimpleDateFormat(
-				"yyyy-MM-dd'T'HH:mm:ss.SSS");
 
 		@SuppressWarnings("deprecation")
 		@Override
@@ -45,10 +52,11 @@ public class AverageDriver {
 
 			// Grab the "CreationDate" field,
 			// since it is what we are grouping by
-			String strDate = parsed.get("CreationDate");
+			
+			String strDate = parsed.get(MRDPUtils.CREATION_DATE);
 
 			// Grab the comment to find the length
-			String text = parsed.get("Text");
+			String text = parsed.get(MRDPUtils.TEXT);
 
 			// .get will return null if the key is not there
 			if (strDate == null || text == null) {
@@ -58,7 +66,7 @@ public class AverageDriver {
 
 			try {
 				// get the hour this comment was posted in
-				Date creationDate = frmt.parse(strDate);
+				Date creationDate = MRDPUtils.frmt.parse(strDate);
 				outHour.set(creationDate.getHours());
 
 				// get the comment length

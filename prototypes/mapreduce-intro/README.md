@@ -1,3 +1,5 @@
+A-First example
+
 1-Put files to be processed in HDFS
 
 Ej: go to /home/chema/data and execute the next command:
@@ -15,3 +17,16 @@ $HADOOP_HOME/bin/hadoop jar target/mapreduce-turorial-0.1-SNAPSHOT-job.jar /home
 4-Check results
 
 $HADOOP_HOME/bin/hadoop fs -cat /home/chema/data/output/part-r-00000
+
+
+B-Example:
+
+input: /home/chema/data/input-tweet
+output: /home/chema/data/output-b
+
+
+C-Example:
+
+input: /home/chema/data/input-tweet
+output: /home/chema/data/output-c
+

@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.seerc.relate</groupId>
+	<artifactId>mapreduce-turorial</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>RELATE MAP REDUCE TUTORIAL, library</name>
+	<packaging>jar</packaging>
+	<description>RELATE MAP REDUCE TUTORIAL, library</description>
+	
+<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.1</version>
+			<type>jar</type>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+  		
+  		<!-- Hadoop -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>1.0.3</version>
+			<scope>provided</scope>
+		</dependency>
+  	</dependencies>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mc-release</id>
+			<name>Local Maven repository of releases</name>
+			<url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+
+	</pluginRepositories>
+	<issueManagement>
+		<system>GIT hub</system>
+		<url>https://github.com/chemaar/seqos</url>
+	</issueManagement>
+	<licenses>
+		<license>
+			<name>GNU LESSER GENERAL PUBLIC LICENSE</name>
+			<url>http://www.gnu.org/licenses/lgpl.html</url>
+			<distribution>repo</distribution>
+			<comments />
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>chema_ar</id>
+			<name>Dr. Jose María Alvarez Rodriguez</name>
+			<email>chema.ar@gmail.com</email>
+			<url></url>
+			<organization />
+			<organizationUrl />
+			<roles>
+				<role>Project Admin</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+	</developers>
+
+
+
+	<!--Build plugins -->
+	<build>
+		<plugins>
+		
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<encoding>utf-8</encoding>
+					<showDeprecation>false</showDeprecation>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass></mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/hadoop-job.xml</descriptor>
+					</descriptors>
+					<archive>
+						<manifest>
+							<mainClass>org.seerc.relate.mapreduce.examples.WordCount</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+	</build>
+</project>
