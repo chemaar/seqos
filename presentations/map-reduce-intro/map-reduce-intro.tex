@@ -36,7 +36,100 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Programming Model}
+\section{Map Reduce in a nutshell}
+
+
+\frame{
+  \frametitle{Features}
+
+\begin{block}{A programming model...}
+\begin{enumerate}
+ \item Large-scale distributed data processing
+ \item Simple but restricted
+ \item Paralell programming
+ \item Extensible
+\end{enumerate}
+\end{block}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Antecedents}
+
+\begin{alertblock}{Functional programming}
+\begin{enumerate}
+ \item Inspired
+ \item ...but not equivalent
+\end{enumerate}
+\end{alertblock}
+
+\begin{exampleblock}{Example in Python}
+``Given a list of numbers between 1 and 50 print only even numbers''
+\begin{lstlisting}
+print filter(lambda x: x % 2 == 0, range(1, 50))
+\end{lstlisting}
+\end{exampleblock}
+\begin{itemize}
+ \item A list of numbers (data)
+ \item A condition (even numbers)
+ \item A function \textit{filter} that is applied to the list (map)
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{...Other examples...}
+
+\begin{exampleblock}{Example in Python}
+``Return the sum of the squares of a list of numbers between 1 and 50''
+\begin{lstlisting}
+import operator
+reduce(operator.add, map((lambda x: x **2), range(1,50)) , 0)
+\end{lstlisting}
+\end{exampleblock}
+
+\begin{itemize}
+ \item ``reduce'' is equivalent to ``foldl'' in other func. languages as Haskell
+ \item other math considerations should be taken into account (kind of operator)...
+\end{itemize}
+
+
+\end{frame}
+
+
+\frame{
+  \frametitle{Some interesting points...}
+
+\begin{alertblock}{The Map Reduce framework...}
+\begin{enumerate}
+ \item Inspired in functional programming concepts (\textbf{but not equivalent})
+ \item Problems that can be paralellized
+ \item Sometimes recursive solutions
+ \item ...
+\end{enumerate}
+\end{alertblock}
+
+}
+
+
+\frame{
+  \frametitle{Execution overview}
+FIXME: include image
+
+}
+
+
+\frame{
+  \frametitle{FAQ}
+\begin{exampleblock}{What is MapReduce?}
+It is a \textbf{framework} inspired in \textbf{functional programming} to tackle problems in which steps 
+can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
+\end{exampleblock}
+
+}
 
 \section{Examples}
 
