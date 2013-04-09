@@ -114,12 +114,20 @@ reduce(operator.add, map((lambda x: x **2), range(1,50)) , 0)
 
 }
 
-
 \frame{
-  \frametitle{Execution overview}
-FIXME: include image
+  \frametitle{Basic Model}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=7cm]{img/basic-model-mapreduce}
+\end{figure}
 
+\tiny
+``MapReduce: The Programming Model and Practice'', SIGMETRICS, Turorials 2009, Google.
 }
+
+
+
+
 
 
 \frame{
@@ -132,6 +140,71 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 }
 
 \section{Thinking in MapReduce}
+
+\frame{
+  \frametitle{When should I use MapReduce?}
+\begin{exampleblock}{Query}
+\begin{itemize}
+ \item Index and Search: inverted index
+ \item Filtering
+ \item Classification 
+ \item Recommendations: clustering or collaborative filtering
+\end{itemize}
+\end{exampleblock}
+
+\begin{block}{Analytics}
+\begin{itemize}
+ \item Summarization and statistics
+ \item Sorting and merging 
+ \item Frequency distribution
+ \item SQL-based queries: group-by, having, etc.
+ \item Generation of graphics: histograms, scatter plots.
+\end{itemize}
+
+\end{block}
+
+}
+
+
+\frame{
+  \frametitle{How Google uses MapReduce (80\% of data processing)...}
+
+\begin{itemize}
+\item Large-scale web search indexing
+\item Clustering problems for Google News
+\item Produce reports for popular queries, e.g. Google Trend
+\item Processing of satellite imagery data
+\item Language model processing for statistical machine translation
+\item Large-scale machine learning problems
+\item \ldots
+\end{itemize}
+
+
+}
+
+\frame{
+  \frametitle{Comparison of MapReduce and other approaches}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=8cm]{img/comparison-map-reduce}
+\end{figure}
+
+\tiny
+``MapReduce: The Programming Model and Practice'', SIGMETRICS, Turorials 2009, Google.
+
+}
+
+\frame{
+  \frametitle{Evaluation of MapReduce and other approaches}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=8cm]{img/table-features}
+\end{figure}
+
+\tiny
+``MapReduce: The Programming Model and Practice'', SIGMETRICS, Turorials 2009, Google.
+
+}
 
 
 \frame{

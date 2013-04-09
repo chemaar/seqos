@@ -34,13 +34,14 @@ $HADOOP_HOME/bin/hadoop fs -cat output/part-r-00000
 
 b)Running the Server and Speed Layer:
 
-1-Run redis-server
-2-Run rabbitmq-server
-3-Run src/main/webapp/app.js
+1-Run redis-server ($ redis-server)
+2-Run rabbitmq-server (usually it is automatically started by the OS).
+3-Run node.js app ($ node src/main/webapp/app.js)
 4-Run topology of speed and server layer
-5-Run Twitter worker
 
-c)-Show results
+mvn compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=org.seerc.relate.relatweet.lambda.server.LambdaWordCounterTopology
+
+c)Show results
 
 http://localhost:3000
 
