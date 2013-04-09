@@ -14,8 +14,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[MapReduce Intro]{Evaluation of the Map Reduce Programming Model}
-\author[Dr. Jose María Álvarez Rodríguez]{\textbf{Introduction and Examples}\\ \vspace{0.3cm} Dr. Jose María Álvarez Rodríguez \\ \vspace{0.3cm} ``Quality Management in Service-based Systems and Cloud Applications'' \\ \vspace{0.3cm} FP7 RELATE-ITN}
+\title[MapReduce Intro]{The MapReduce Programming Model}
+\author[Dr. Jose Mar\'{i}a Alvarez-Rodr\'{i}guez]{\textbf{Introduction and Examples}\\ \vspace{0.3cm} Dr. Jose Mar\'{i}a Alvarez-Rodr\'{i}guez \\ \vspace{0.3cm} ``Quality Management in Service-based Systems and Cloud Applications'' \\ \vspace{0.3cm} FP7 RELATE-ITN}
 \subtitle{}
 \institute{South East European Research Center}
 
@@ -121,14 +121,65 @@ reduce(operator.add, map((lambda x: x **2), range(1,50)) , 0)
   \frametitle{Basic Model}
 \begin{figure}[!htb]
 \centering
- \includegraphics[width=7cm]{img/basic-model-mapreduce}
-\end{figure}
+ \includegraphics[width=7cm]{img/mapping-hadoop}
+ \end{figure}
 
 \tiny
 ``MapReduce: The Programming Model and Practice'', SIGMETRICS, Turorials 2009, Google.
+
 }
 
 
+
+\frame{
+  \frametitle{Map Function}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=7cm]{img/basic-model-mapreduce}
+ \caption{Mapping creates a new output list by applying a function to individual elements of an input list.}
+\end{figure}
+
+\tiny
+``Module 4: MapReduce'', Hadoop Tutorial, Yahoo!.
+}
+
+\frame{
+  \frametitle{Reduce Function}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=7cm]{img/reduce}
+ \caption{Reducing a list iterates over the input values to produce an aggregate value as output.}
+\end{figure}
+
+\tiny
+``Module 4: MapReduce'', Hadoop Tutorial, Yahoo!.
+}
+
+
+
+\frame{
+  \frametitle{MapReduce Flow}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=7cm]{img/flow}
+ \caption{High-level MapReduce pipeline.}
+\end{figure}
+
+\tiny
+``Module 4: MapReduce'', Hadoop Tutorial, Yahoo!.
+}
+
+\frame{
+  \frametitle{MapReduce Flow}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=7cm]{img/high-level}
+ \caption{Detailed Hadoop MapReduce data flow.}
+\end{figure}
+
+\tiny
+``Module 4: MapReduce'', Hadoop Tutorial, Yahoo!.
+}
 
 
 
