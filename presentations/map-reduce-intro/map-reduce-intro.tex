@@ -57,24 +57,26 @@
 \begin{frame}[fragile]
   \frametitle{Antecedents}
 
-\begin{alertblock}{Functional programming}
+\begin{alertblock}{Functional programming}<1->
 \begin{enumerate}
  \item Inspired
  \item ...but not equivalent
 \end{enumerate}
 \end{alertblock}
 
-\begin{exampleblock}{Example in Python}
+\begin{exampleblock}{Example in Python}<2->
 ``Given a list of numbers between 1 and 50 print only even numbers''
 \begin{lstlisting}
 print filter(lambda x: x % 2 == 0, range(1, 50))
 \end{lstlisting}
-\end{exampleblock}
+\tiny
 \begin{itemize}
  \item A list of numbers (data)
  \item A condition (even numbers)
  \item A function \textit{filter} that is applied to the list (map)
 \end{itemize}
+\end{exampleblock}
+
 
 
 \end{frame}
@@ -89,13 +91,14 @@ print filter(lambda x: x % 2 == 0, range(1, 50))
 import operator
 reduce(operator.add, map((lambda x: x **2), range(1,50)) , 0)
 \end{lstlisting}
+
 \end{exampleblock}
+
 
 \begin{itemize}
  \item ``reduce'' is equivalent to ``foldl'' in other func. languages as Haskell
  \item other math considerations should be taken into account (kind of operator)...
 \end{itemize}
-
 
 \end{frame}
 
@@ -143,7 +146,8 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 
 \frame{
   \frametitle{When should I use MapReduce?}
-\begin{exampleblock}{Query}
+  \scriptsize
+\begin{exampleblock}{Query}<1->
 \begin{itemize}
  \item Index and Search: inverted index
  \item Filtering
@@ -152,7 +156,7 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 \end{itemize}
 \end{exampleblock}
 
-\begin{block}{Analytics}
+\begin{block}{Analytics}<2->
 \begin{itemize}
  \item Summarization and statistics
  \item Sorting and merging 
@@ -162,6 +166,11 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 \end{itemize}
 
 \end{block}
+
+\begin{alertblock}{Others}<3->
+ Message passing such as Breadth First-Search or PageRank algorithms.
+\end{alertblock}
+
 
 }
 
