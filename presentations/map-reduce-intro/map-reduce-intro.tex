@@ -268,14 +268,416 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 
 
 \frame{
+  \frametitle{Apache Hadoop}
+
+\begin{columns}[c] % the "c" option specifies center vertical alignment
+\column{.5\textwidth} % column designated by a command
+
+
+\begin{block}{MapReduce definition}
+The Apache Hadoop software library is a \textbf{framework} that allows for the \textbf{distributed processing} of \textbf{large data sets} across \textbf{clusters} of computers using \textbf{simple programming model}s.
+\end{block}
+
+
+\column{.5\textwidth}
+
+\begin{figure}[htb]
+\centering
+	\includegraphics[width=3cm]{img/hadoop-logo}
+\caption{Apache Hadoop Logo.}
+\end{figure}
+
+\end{columns}
+
+}
+
+
+\frame{
   \frametitle{Tip}
 \begin{exampleblock}{What can I do in MapReduce?}
-
+Three main functions:
+\begin{enumerate}
+ \item \textbf{Querying}
+ \item \textbf{Summarizing}
+ \item \textbf{Analyzing}
+\end{enumerate}
+\ldots \textbf{large datasets} in \textbf{off-line} mode for \textbf{boosting} other \textbf{on-line} processes.
 \end{exampleblock}
 
 }
 
 \section{Applying MapReduce}
+
+\frame{
+  \frametitle{MapReduce in Action}
+\begin{block}{MapReduce Patterns}
+\begin{enumerate}
+ \item Summarization
+ \item Filtering
+ \item Data Organization
+ \item SQL-based (Join)
+ \item Others: metapatterns, input-output, etc. (depending on the implementation)
+\end{enumerate}
+\end{block}
+
+}
+
+
+\frame{
+  \frametitle{Summarization}
+\begin{exampleblock}{Types}
+\begin{enumerate}
+ \item Numerical summarizations
+ \item Inverted index
+ \item Counting and counters
+ \end{enumerate}
+\end{exampleblock}
+
+}
+
+
+\frame{
+  \frametitle{Numerical Summarization-I}
+\begin{block}{Description}
+A general pattern for calculating aggregate statistical values over your data.
+\end{block}
+
+\begin{alertblock}{Intent}
+Group records together by a key field and calculate a numerical aggregate per group to
+get a top-level view of the larger data set.
+\end{alertblock}
+
+}
+
+\frame{
+  \frametitle{Numerical Summarization-II}
+  
+\begin{block}{Applicability}
+\begin{itemize}
+ \item To deal with numerical data or counting.
+ \item To group data by specific fields
+\end{itemize}
+\end{block}
+
+\begin{exampleblock}{Examples}
+ Word count, Record count, Min/Max/Count, Average/Median/Standard deviation, etc.
+\end{exampleblock}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Numerical Summarization-Pseudocode}
+\begin{verbatim}
+ class Mapper
+   method Map(recordid id, record r)
+      for all term t in record r do
+         Emit(term t, count 1)
+ 
+class Reducer
+   method Reduce(term t, counts [c1, c2,...])
+      sum = 0
+      for all count c in [c1, c2,...] do
+          sum = sum + c
+      Emit(term t, count sum)      
+\end{verbatim}
+\end{frame}    
+
+\begin{frame}[fragile]
+  \frametitle{Numerical Summarization-Word Counter}
+
+\begin{lstlisting}[language=Java]
+public void map(LongWritable key, Text value, Context context) 
+      throws Exception {
+        String line = value.toString();
+        StringTokenizer tokenizer = new StringTokenizer(line);
+        while (tokenizer.hasMoreTokens()) {
+            word.set(tokenizer.nextToken());
+            context.write(word, one);
+        }
+    }
+    
+public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+      throws IOException, InterruptedException {
+        int sum = 0;
+        for (IntWritable val : values) {
+            sum += val.get();
+        }
+        context.write(key, new IntWritable(sum));
+    }    
+\end{lstlisting}
+
+\end{frame}
+
+
+\frame{
+  \frametitle{Example-II}
+
+\begin{block}{Min/Max}
+ Given a list of tweets (username, date, text) determine first and last time an user commented and the number of times.
+\end{block}
+
+\tiny
+\begin{exampleblock}{Implementation}
+ See \url{https://github.com/chemaar/seqos/tree/master/prototypes/mapreduce-intro}
+\end{exampleblock}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Example II-Min/Max, function Map}
+
+\begin{lstlisting}[language=Java]
+public void map(Object key, Text value, Context context)
+      throws IOException, InterruptedException, ParseException {
+        Map<String, String> parsed = MRDPUtils.parse(value.toString());
+        String strDate = parsed.get(MRDPUtils.CREATION_DATE);
+        String userId = parsed.get(MRDPUtils.USER_ID);
+        if (strDate == null || userId == null) {
+          return;
+        }
+        Date creationDate = MRDPUtils.frmt.parse(strDate);
+        outTuple.setMin(creationDate);
+        outTuple.setMax(creationDate);
+        outTuple.setCount(1);
+        outUserId.set(userId);
+        context.write(outUserId, outTuple);
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Example II-Min/Max, function Reduce}
+
+\begin{lstlisting}[language=Java]
+public void reduce(Text key, Iterable<MinMaxCountTuple> values,
+      Context context) throws IOException, InterruptedException {
+      result.setMin(null);
+      result.setMax(null);
+      int sum = 0;
+      for (MinMaxCountTuple val : values) {
+            if (result.getMin() == null
+                  || val.getMin().compareTo(result.getMin()) < 0) {
+                  result.setMin(val.getMin());
+            }
+            if (result.getMax() == null
+                  || val.getMax().compareTo(result.getMax()) > 0) {
+                  result.setMax(val.getMax());
+                  }
+                  sum += val.getCount();}
+      result.setCount(sum);
+      context.write(key, result);
+}
+\end{lstlisting}
+
+\end{frame}
+
+
+\frame{
+  \frametitle{Example-III}
+
+\begin{block}{Average}
+Given a list of tweets (username, date, text) determine the average comment length per hour of day.
+\end{block}
+
+\tiny
+\begin{exampleblock}{Implementation}
+ See \url{https://github.com/chemaar/seqos/tree/master/prototypes/mapreduce-intro}
+\end{exampleblock}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Example III-Average, function Map}
+
+\begin{lstlisting}[language=Java]
+public void map(Object key, Text value, Context context)
+      throws IOException, InterruptedException,ParseException {
+      Map<String, String> parsed = 
+            MRDPUtils.parse(value.toString());
+      String strDate = parsed.get(MRDPUtils.CREATION_DATE);
+      String text = parsed.get(MRDPUtils.TEXT);
+      if (strDate == null || text == null) {
+            return;
+      }
+      Date creationDate = MRDPUtils.frmt.parse(strDate);
+      outHour.set(creationDate.getHours());
+      outCountAverage.setCount(1);
+      outCountAverage.setAverage(text.length());
+      context.write(outHour, outCountAverage);
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Example III-Average, function Reduce}
+
+\begin{lstlisting}[language=Java]
+public void reduce(IntWritable key, Iterable<CountAverageTuple> values,
+      Context context) throws IOException, InterruptedException {
+      float sum = 0;
+      float count = 0;
+      for (CountAverageTuple val : values) {
+            sum += val.getCount() * val.getAverage();
+            count += val.getCount();
+      }
+      result.setCount(count);
+      result.setAverage(sum / count);
+      context.write(key, result);
+}
+\end{lstlisting}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Numerical Summarization-III}
+  \begin{block}{Relation to SQL}<1->
+  
+  \begin{lstlisting}
+SELECT MIN(numcol1), MAX(numcol1),
+COUNT(*) FROM table GROUP BY groupcol2;
+\end{lstlisting}
+\end{block}
+
+\begin{exampleblock}{Implementation in PIG}<2->
+
+\begin{lstlisting}
+b = GROUP a BY groupcol2;
+c = FOREACH b GENERATE group, MIN(a.numcol1),
+MAX(a.numcol1), COUNT_STAR(a);
+\end{lstlisting}
+
+\end{exampleblock}
+
+\end{frame}
+
+
+\frame{
+  \frametitle{Filtering}
+\begin{exampleblock}{Types}
+\begin{enumerate}
+ \item Filtering
+ \item Top N records
+ \item Bloom filtering 
+ \item Distinct
+ \end{enumerate}
+\end{exampleblock}
+
+}
+
+
+
+
+
+\frame{
+  \frametitle{Filtering-I}
+\begin{block}{Description}
+It evaluates each record separately and decides, based on some condition, whether it should stay or go.
+\end{block}
+
+\begin{alertblock}{Intent}
+Filter out records that are not of interest and keep ones that are.
+\end{alertblock}
+
+}
+\frame{
+  \frametitle{Filtering-II}
+  
+\begin{block}{Applicability}
+To collate data
+\end{block}
+
+\begin{exampleblock}{Examples}
+Distributed Grep, Log Analysis, Data Querying, Data Validation
+\end{exampleblock}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Filtering-Pseudocode}
+\begin{verbatim}
+class Mapper
+   method Map(recordid id, record r)
+      field f = extract(r)
+      if predicate (f)       
+         Emit(recordid id, value(r))
+ 
+class Reducer
+   method Reduce(recordid id, values [r1, r2,...])
+      //Whatever      
+      Emit(recordid id, aggregate (values))      
+\end{verbatim}
+\end{frame}    
+
+
+
+\frame{
+  \frametitle{Example-IV}
+
+\begin{block}{Distributed Grep}
+Given a list of tweets (username, date, text) determine the tweets that contain a \textit{word}.
+\end{block}
+
+\tiny
+\begin{exampleblock}{Implementation}
+ See \url{https://github.com/chemaar/seqos/tree/master/prototypes/mapreduce-intro}
+\end{exampleblock}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Example IV-Distributed Grep, function Map}
+
+\begin{lstlisting}[language=Java]
+public void map(Object key, Text value, Context context)
+      throws IOException, InterruptedException {
+      Map<String, String> parsed = 
+            MRDPUtils.parse(value.toString());
+      String txt = parsed.get(MRDPUtils.TEXT);
+      String mapRegex = ".*\\b"+context.getConfiguration()
+            .get("mapregex")+"(.)*\\b.*";
+      if (txt.matches(mapRegex)) {
+            context.write(NullWritable.get(), value);
+      }
+}
+\end{lstlisting}
+\tiny
+
+\begin{alertblock}{...and the Reduce function?}
+ In this case it is not necessary and output values are directly writing to the output.
+\end{alertblock}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Filtering-III}
+  \begin{block}{Relation to SQL}<1->
+  
+  \begin{lstlisting}
+SELECT * FROM table WHERE colvalue < 3;
+\end{lstlisting}
+\end{block}
+
+\begin{exampleblock}{Implementation in PIG}<2->
+
+\begin{lstlisting}
+b = FILTER a BY colvalue < 3;
+\end{lstlisting}
+
+\end{exampleblock}
+
+\end{frame}
+
+
 
 
 \frame{
@@ -285,9 +687,6 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 \end{exampleblock}
 
 }
-
-
-\section{Implementing MapReduce algorithms}
 
 
 \frame{
@@ -321,17 +720,9 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 }
 
 
-\section{Summary}
-
-\frame{
 
 
-}
-
-
-
-
-\section{Conclusions}
+\section{Summary and Conclusions}
 
 \frame{
 \titlepage
