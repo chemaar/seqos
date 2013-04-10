@@ -461,6 +461,17 @@ public void reduce(Text key, Iterable<IntWritable> values, Context context)
 
 }
 
+\frame{
+  \frametitle{Overview - Min/Max}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=8cm]{img/min-max}
+\end{figure}
+\tiny
+$\ast$ Min and max creation data are the same in tha map phase.
+}
+
+
 
 \begin{frame}[fragile]
   \frametitle{Example II-Min/Max, function Map}
@@ -869,6 +880,7 @@ All companies that are dealing with Big Data problems for analytics such as:
  \item ...scalability, replication, fault-tolerant, etc.
  \item Apache Hadoop is not a database
  \item New frameworks on top of Hadoop for specific tasks: querying, analysis, etc.
+ \item Other similar frameworks: Storm, Signal/Collect, etc.
  \item \ldots
 \end{itemize}
 
