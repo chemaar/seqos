@@ -314,8 +314,8 @@ Three main functions:
 \begin{enumerate}
  \item Summarization
  \item Filtering
- \item Data Organization
- \item SQL-based (Join)
+ \item Data Organization (sort, merging, etc.)
+ \item SQL-based (join, selection, projection, etc.)
  \item Iterative Message Passing (Graph Processing)
  \item Others: metapatterns, input-output, etc. (depending on the implementation)
 \end{enumerate}
@@ -545,7 +545,7 @@ public void reduce(IntWritable key, Iterable<CountAverageTuple> values,
 
 
 \begin{frame}[fragile]
-  \frametitle{Numerical Summarization-III}
+  \frametitle{Numerical Summarization-Other approaches}
   \begin{block}{Relation to SQL}<1->
   
   \begin{lstlisting}
@@ -701,7 +701,21 @@ public void map(Object key, Text value, Context context)
   \frametitle{Example V-Top 5, function Map}
 
 \begin{lstlisting}[language=Java]
-FIXME
+private TreeMap<Integer, Text> repToRecordMap = new TreeMap<Integer, Text>();
+public void map(Object key, Text value, Context context)
+      throws IOException, InterruptedException {
+      Map<String, String> parsed = 
+      MRDPUtils.parse(value.toString());
+      if (parsed == null) {return;}
+      String userId = parsed.get(MRDPUtils.USER_ID);
+      String reputation = String.valueOf(parsed.get(MRDPUtils.TEXT).length()); 
+      //Max reputation if you write tweets longer
+      if (userId == null || reputation == null) {return;}
+            repToRecordMap.put(Integer.parseInt(reputation), new Text(value));
+            if (repToRecordMap.size() > MAX_TOP) {
+                  repToRecordMap.remove(repToRecordMap.firstKey());
+            }
+        }
 \end{lstlisting}
 
 \end{frame}
@@ -710,7 +724,19 @@ FIXME
   \frametitle{Example V-Top 5, function Reduce}
 
 \begin{lstlisting}[language=Java]
-FIXME
+public void reduce(NullWritable key, Iterable<Text> values,
+      Context context) throws IOException, InterruptedException {
+            for (Text value : values) {
+            Map<String, String> parsed = MRDPUtils.parse(value.toString());
+            repToRecordMap.put(parsed.get(MRDPUtils.TEXT).length(),new Text(value));
+            if (repToRecordMap.size() > MAX_TOP) {
+                  repToRecordMap.remove(repToRecordMap.firstKey());
+                  }
+              }
+            for (Text t : repToRecordMap.descendingMap().values()) {
+                  context.write(NullWritable.get(), t);
+            }
+}
 \end{lstlisting}
 
 \end{frame}
@@ -719,18 +745,18 @@ FIXME
 
 
 \begin{frame}[fragile]
-  \frametitle{Filtering-III}
+  \frametitle{Filtering-Other approaches}
   \begin{block}{Relation to SQL}<1->
   
   \begin{lstlisting}
-SELECT * FROM table WHERE colvalue < 3;
+SELECT * FROM table WHERE colvalue < VALUE;
 \end{lstlisting}
 \end{block}
 
 \begin{exampleblock}{Implementation in PIG}<2->
 
 \begin{lstlisting}
-b = FILTER a BY colvalue < 3;
+b = FILTER a BY colvalue < VALUE;
 \end{lstlisting}
 
 \end{exampleblock}
@@ -739,23 +765,15 @@ b = FILTER a BY colvalue < 3;
 
 
 
-
 \frame{
   \frametitle{Tip}
-\begin{exampleblock}{How can I use MapReduce ?}
-
+\begin{exampleblock}{How can I use and run a MapReduce framework?}
+You should \textbf{identify} what \textbf{kind of problem} you are addressing and \textbf{apply a design pattern} to be \textbf{implemented} 
+in a \textbf{framework} such as Apache \textbf{Hadoop}.
 \end{exampleblock}
 
 }
 
-
-\frame{
-  \frametitle{Tip}
-\begin{exampleblock}{How can I run a MapReduce framework?}
-
-\end{exampleblock}
-
-}
 
 \section{Success Stories with MapReduce}
 
@@ -770,32 +788,60 @@ b = FILTER a BY colvalue < 3;
 
 \section{Beyond MapReduce}
 
+\frame{
+  \frametitle{Tip}
+\begin{exampleblock}{Apache Hadoop Technology Stack}
+
+\end{exampleblock}
+
+}
 
 \frame{
   \frametitle{Tip}
 \begin{exampleblock}{What's next?}
+\begin{itemize}
+ \item Concatenate MapReduce jobs
+ \item Optimization using combiners and setting the parameters (size of partition, etc.)
+ \item Pipelining with other languages such as Python 
+ \item \ldots
+\end{itemize}
 
 \end{exampleblock}
 
 }
 
 
-
-
-\section{Summary and Conclusions}
-
 \frame{
-\titlepage
+  \frametitle{More tips}
+\begin{block}{FAQ}
+\begin{itemize}
+ \item MapReduce is a framework based on a simple programming model
+ \item ...to deal with large datasets in a distributed fashion
+ \item ...scalability, replication, fault-tolerant, etc.
+ \item Apache Hadoop is not a database
+ \item New frameworks on top of Hadoop for specific tasks: querying, analysis, etc.
+ \item \ldots
+\end{itemize}
+
+\end{block}
 
 }
 
 
 
-\section{Future Work}
+\section{Summary and Conclusions}
 
 \frame{
-\titlepage
+  \frametitle{Summary}
+\begin{figure}[htb]
+\centering
+	%\includegraphics[width=3cm]{img/hadoop-logo}
+\caption{Cheatsheet.}
+\end{figure}
+}
 
+\frame{
+  \frametitle{Conclusions}
 }
 
 
