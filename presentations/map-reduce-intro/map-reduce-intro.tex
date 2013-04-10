@@ -316,6 +316,7 @@ Three main functions:
  \item Filtering
  \item Data Organization
  \item SQL-based (Join)
+ \item Iterative Message Passing (Graph Processing)
  \item Others: metapatterns, input-output, etc. (depending on the implementation)
 \end{enumerate}
 \end{block}
@@ -676,6 +677,45 @@ public void map(Object key, Text value, Context context)
 \end{alertblock}
 
 \end{frame}
+
+
+
+
+
+\frame{
+  \frametitle{Example-V}
+
+\begin{block}{Top 5}
+ Given a list of tweets (username, date, text) determine the 5 users that wrote longer tweets
+\end{block}
+
+\tiny
+\begin{exampleblock}{Implementation}
+ See \url{https://github.com/chemaar/seqos/tree/master/prototypes/mapreduce-intro}
+\end{exampleblock}
+
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Example V-Top 5, function Map}
+
+\begin{lstlisting}[language=Java]
+FIXME
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Example V-Top 5, function Reduce}
+
+\begin{lstlisting}[language=Java]
+FIXME
+\end{lstlisting}
+
+\end{frame}
+
+
 
 
 \begin{frame}[fragile]
