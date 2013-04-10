@@ -227,7 +227,7 @@ can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
 
 
 \frame{
-  \frametitle{How Google uses MapReduce (80\% of data processing)...}
+  \frametitle{How Google uses MapReduce (80\% of data processing)}
 
 \begin{itemize}
 \item Large-scale web search indexing
@@ -332,6 +332,17 @@ Three main functions:
 
 
 \frame{
+  \frametitle{Overview (stages)-Counting Letters}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=8cm]{img/img-1}
+\end{figure}
+}
+
+
+
+
+\frame{
   \frametitle{Summarization}
 \begin{exampleblock}{Types}
 \begin{enumerate}
@@ -398,6 +409,16 @@ class Reducer
       Emit(term t, count sum)      
 \end{verbatim}
 \end{frame}    
+
+\frame{
+  \frametitle{Overview-Word Counter}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=10cm]{img/img-2}
+\end{figure}
+}
+
+
 
 \begin{frame}[fragile]
   \frametitle{Numerical Summarization-Word Counter}
@@ -504,6 +525,15 @@ Given a list of tweets (username, date, text) determine the average comment leng
 \end{exampleblock}
 
 }
+
+\frame{
+  \frametitle{Overview - Average}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=8cm]{img/img-3}
+\end{figure}
+}
+
 
 
 \begin{frame}[fragile]
@@ -660,6 +690,14 @@ Given a list of tweets (username, date, text) determine the tweets that contain 
 
 }
 
+\frame{
+  \frametitle{Overview - Distributed Grep}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=10cm]{img/img-4}
+\end{figure}
+}
+
 
 \begin{frame}[fragile]
   \frametitle{Example IV-Distributed Grep, function Map}
@@ -702,6 +740,15 @@ public void map(Object key, Text value, Context context)
 \end{exampleblock}
 
 }
+
+\frame{
+  \frametitle{Overview - Top 5}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=10cm]{img/img-5}
+\end{figure}
+}
+
 
 
 \begin{frame}[fragile]
@@ -788,34 +835,29 @@ in a \textbf{framework} such as Apache \textbf{Hadoop}.
 \frame{
   \frametitle{Tip}
 \begin{exampleblock}{Who is using MapReduce?}
-
-\end{exampleblock}
-
-}
-
-\section{Beyond MapReduce}
-
-\frame{
-  \frametitle{Tip}
-\begin{exampleblock}{Apache Hadoop Technology Stack}
-
-\end{exampleblock}
-
-}
-
-\frame{
-  \frametitle{Tip}
-\begin{exampleblock}{What's next?}
+All companies that are dealing with Big Data problems for analytics such as:
 \begin{itemize}
- \item Concatenate MapReduce jobs
- \item Optimization using combiners and setting the parameters (size of partition, etc.)
- \item Pipelining with other languages such as Python 
- \item \ldots
+ \item Cloudera
+ \item Datasalt
+ \item Elasticsearch
+  \item \ldots
 \end{itemize}
 
 \end{exampleblock}
 
 }
+
+
+
+\frame{
+  \frametitle{Apache Hadoop-Related Projects}
+\begin{figure}[!htb]
+\centering
+ \includegraphics[width=8cm]{img/hadoop-related}
+\end{figure}
+}
+
+
 
 
 \frame{
@@ -842,14 +884,51 @@ in a \textbf{framework} such as Apache \textbf{Hadoop}.
   \frametitle{Summary}
 \begin{figure}[htb]
 \centering
-	%\includegraphics[width=3cm]{img/hadoop-logo}
-\caption{Cheatsheet.}
+	\includegraphics[width=8.5cm]{img/MapReduce}
 \end{figure}
 }
 
 \frame{
   \frametitle{Conclusions}
+  \tiny
+\begin{block}{What is MapReduce?}<1->
+It is a \textbf{framework} inspired in \textbf{functional programming} to tackle problems in which steps 
+can be \textbf{paralellized} applying a \textbf{divide and conquer} approach.
+\end{block}
+
+\begin{exampleblock}{What can I do in MapReduce?}<2->
+Three main functions:
+\begin{enumerate}
+ \item \textbf{Querying}
+ \item \textbf{Summarizing}
+ \item \textbf{Analyzing}
+\end{enumerate}
+\ldots \textbf{large datasets} in \textbf{off-line} mode for \textbf{boosting} other \textbf{on-line} processes.
+\end{exampleblock}
+
+\begin{alertblock}{How can I use and run a MapReduce framework?}<3->
+You should \textbf{identify} what \textbf{kind of problem} you are addressing and \textbf{apply a design pattern} to be \textbf{implemented} 
+in a \textbf{framework} such as Apache \textbf{Hadoop}.
+\end{alertblock}
 }
+
+
+\frame{
+  \frametitle{What's next?}
+\begin{exampleblock}{\ldots}
+\begin{itemize}
+ \item Concatenate MapReduce jobs
+ \item Optimization using combiners and setting the parameters (size of partition, etc.)
+ \item Pipelining with other languages such as Python 
+ \item Hadoop in Action
+ \item Real-time processing
+ \item \ldots
+\end{itemize}
+
+\end{exampleblock}
+
+}
+
 
 
 
