@@ -1,0 +1,92 @@
+@prefix : <http://purl.org/seerc/seqos/#> .
+@prefix seqos-onto: <http://purl.org/seerc/seqos/ontology/> .
+@prefix seqos-org: <http://purl.org/seerc/seqos/organization/> .
+@prefix seqos-people: <http://purl.org/seerc/seqos/people/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qb:      <http://purl.org/linked-data/cube#> .
+@prefix interval:  <http://www.w3.org/2006/time#> .
+@prefix sdmx-concept:    <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension:  <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure:    <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-metadata:   <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix sdmx-code:       <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix sdmx-subject:    <http://purl.org/linked-data/sdmx/2009/subject#> .
+
+
+<http://purl.org/seerc/seqos/ontology>
+    a owl:Ontology;
+    owl:versionInfo "0.1";
+    rdfs:label "Core SeQoS ontology"@en;
+    rdfs:comment "This is the first version of the SeQoS taxonomy for representing QoS indicators and modeling an index."@en;
+    dcterms:created "2012-20-05"^^xsd:date;
+    dcterms:modified "2012-08-31"^^xsd:date;
+    dcterms:title "Core Webindex ontology"@en;
+    dcterms:author seqos-people:Chema, seqos-org:SEERC ;
+    dcterms:publisher  seqos-people:Chema;
+    dcterms:contributor  seqos-org:SEERC, seqos-org:RELATE ;
+    dcterms:license <http://opendatacommons.org/licenses/by/1.0/> .
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://purl.org/seerc/seqos/ontology/Index
+
+seqos-onto:Index a owl:Class, rdfs:Class; 
+	rdfs:subClassOf skos:Concept ;
+	rdfs:label "Index"@en;
+	rdfs:comment "The class of index that can be modeled in a Cloud Environment."@en;
+.
+
+###  http://purl.org/seerc/seqos/ontology/Component
+
+seqos-onto:Component a owl:Class, rdfs:Class;
+	rdfs:subClassOf skos:Concept ;
+	rdfs:label "Component"@en;
+	rdfs:comment "Element part of an index. It is comprised of indicators."@en;
+.
+
+###  http://purl.org/seerc/seqos/ontology/Indicator
+
+seqos-onto:Indicator a owl:Class, rdfs:Class;
+	rdfs:subClassOf skos:Concept ;
+	rdfs:label "Indicator"@en ;
+	rdfs:comment "Element part of a component. Observations are related to an indicator."@en;
+.
+
+
+seqos-onto:KPIIndicator a owl:Class, rdfs:Class;
+	rdfs:subClassOf seqos-onto:Indicator ;
+	rdfs:label "KPI Indicator"@en ;
+	rdfs:comment "Key Performance Indicator."@en;
+.
+
+
+seqos-onto:KPIExternalIndicator a owl:Class, rdfs:Class;
+	rdfs:subClassOf seqos-onto:Indicator ;
+	rdfs:label "KPI External Indicator"@en ;
+	rdfs:comment "This indicator is established by third parties but its observations are not part of a component."@en;
+
+.
+
+
+
+
+
+
+
+
