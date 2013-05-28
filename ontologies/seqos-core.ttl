@@ -159,12 +159,12 @@ seqos-onto:obsStatus-N a skos:Concept, sdmx-concept:Concept, sdmx-code:ObsStatus
 
 ### Metadata of definitions providers
 
-seqos-onto:ref-definition  a owl:ObjectProperty, rdf:Property;
-	rdfs:label "ref-definition"@en;
+seqos-onto:definition-source  a owl:ObjectProperty, rdf:Property;
+	rdfs:label "definition-source"@en;
 	rdfs:comment "URI to the definition of some component or indicator"@en;
 . 
 
-seqos-onto:ref-provider  a owl:ObjectProperty, rdf:Property;
+seqos-onto:definition-provider  a owl:ObjectProperty, rdf:Property;
 	rdfs:subPropertyOf  dcterms:source;
 	rdfs:label "provider-link"@en;
 	rdfs:comment "URI to the provider of a definition"@en;
@@ -221,8 +221,8 @@ seqos-component:Accountability a seqos-onto:Component;
 	rdfs:label "Accountability"@en;
 	rdfs:comment "This component is used to measure the properties related to the service provider
 organization. These properties may be independent of the service being provided."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -247,8 +247,8 @@ seqos-component:Agility a seqos-onto:Component;
 	rdfs:label "Agility"@en;
 	rdfs:comment "Indicates the impact of a service upon a client's ability to change direction, strategy, or tactics quickly
 and with minimal disruption."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -268,8 +268,8 @@ seqos-component:Assurance a seqos-onto:Component;
 	rdfs:label "Assurance"@en;
 	rdfs:comment "This category includes key attributes that indicate how likely it is that the service will be available as
 specified."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -280,14 +280,14 @@ seqos-component:Assurance skos:narrower seqos-indicator:Recoverability  .
 seqos-component:Assurance skos:narrower seqos-indicator:Reliability  .
 seqos-component:Assurance skos:narrower seqos-indicator:Resiliency .
 seqos-component:Assurance skos:narrower seqos-indicator:Stability .
-seqos-component:Assurance skos:narrower seqos-indicator:Ability  .
+seqos-component:Assurance skos:narrower seqos-indicator:Serviceability .
 
 
 seqos-component:Financial a seqos-onto:Component;
 	rdfs:label "Financial"@en;
 	rdfs:comment "The amount of money spent on the service by the client."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -303,8 +303,8 @@ seqos-component:Financial skos:narrower seqos-indicator:Profit .
 seqos-component:Performance a seqos-onto:Component;
 	rdfs:label "Performance"@en;
 	rdfs:comment "This category covers the features and functions of the provided services."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -323,8 +323,8 @@ seqos-component:SecurityPrivacy a seqos-onto:Component;
 	rdfs:label "Security and Privacy"@en;
 	rdfs:comment "This category includes attributes that indicate the effectiveness of a service provider's controls on
 access to services, service data, and the physical facilities from which services are provided."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -345,8 +345,8 @@ seqos-component:SecurityPrivacy skos:narrower seqos-indicator:Disposition .
 seqos-component:Usability a seqos-onto:Component;
 	rdfs:label "Usability"@en;
 	rdfs:comment "The ease with which a service can be used."@en;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	#skos:broader seqos-index:Readiness;
 	seqos-onto:weight "0.3333"^^xsd:double;
 .
@@ -387,8 +387,8 @@ seqos-indicator:Auditability  a seqos-onto:KPIIndicator ;
 	rdfs:label "Auditability"@en ;
 	rdfs:comment "The ability of a client to verify that the service provider is adhering to the standards, processes, and policies that they follow."@en ;
 	skos:definition "The ability of a client to verify that the service provider is adhering to the standards, processes, and policies that they follow."@en ;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;seqos-onto:weight "1.0"^^xsd:double ;
 	seqos-onto:high-low seqos-onto:High ;
 	skos:notation "Auditability" ;
 	time:intervalStarts "2013"^^xsd:int ;
@@ -400,8 +400,8 @@ seqos-indicator:Compliance  a seqos-onto:KPIIndicator ;
 	rdfs:label "Compliance"@en ;
 	rdfs:comment "Standards, processes, and policies committed to by the service provider are followed."@en ;
 	skos:definition "Standards, processes, and policies committed to by the service provider are followed."@en ;
-	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
-	seqos-onto:ref-provider seqos-org:CSMIC;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
 	seqos-onto:weight "1.0"^^xsd:double ;
 	seqos-onto:high-low seqos-onto:High ;
 	skos:notation "Compliance" ;
@@ -410,9 +410,481 @@ seqos-indicator:Compliance  a seqos-onto:KPIIndicator ;
 	skos:broader seqos-component:Accountability .
 
 
+seqos-indicator:ContractingExperience a seqos-onto:KPIIndicator ;
+	rdfs:label "Contracting Experience"@en ;
+	rdfs:comment "Indicators of client effort and satisfaction with the process of entering into the agreements required to use a service."@en ;
+	skos:definition "Indicators of client effort and satisfaction with the process of entering into the agreements required to use a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ContractingExperience" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+seqos-indicator:DataOwnership a seqos-onto:KPIIndicator ;
+	rdfs:label "Data Ownership"@en ;
+	rdfs:comment "The Level of rights a client has over client data associated with a service."@en ;
+	skos:definition "The Level of rights a client has over client data associated with a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "DataOwnership" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:EaseDoingBusiness a seqos-onto:KPIIndicator ;
+	rdfs:label "Ease of Doing Business"@en ;
+	rdfs:comment "Client satisfaction with the ability to do business with a service provider."@en ;
+	skos:definition "Client satisfaction with the ability to do business with a service provider."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "EaseDoingBusiness" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:Governance  a seqos-onto:KPIIndicator ;
+	rdfs:label "Ease of Doing Business"@en ;
+	rdfs:comment "The processes used by the service provider to manage client expectations, issues and service performance."@en ;
+	skos:definition "The processes used by the service provider to manage client expectations, issues and service performance."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Governance" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:Ownership   a seqos-onto:KPIIndicator ;
+	rdfs:label "Ownership"@en ;
+	rdfs:comment "The level of rights a client has over software licenses, intellectual property and data associated with a service."@en ;
+	skos:definition "The level of rights a client has over software licenses, intellectual property and data associated with a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Ownership" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:ProviderStability   a seqos-onto:KPIIndicator ;
+	rdfs:label "Provider business stability"@en ;
+	rdfs:comment "The likelihood that the service provider will continue to exist throughout the contracted term."@en ;
+	skos:definition "The likelihood that the service provider will continue to exist throughout the contracted term."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderStability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:ProviderCertifications   a seqos-onto:KPIIndicator ;
+	rdfs:label "Provider Certifications"@en ;
+	rdfs:comment "The service provider maintains current certifications for standards relevant to their clients' requirements."@en ;
+	skos:definition "The service provider maintains current certifications for standards relevant to their clients' requirements."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderCertifications" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+
+seqos-indicator:ProviderSLAVerification   a seqos-onto:KPIIndicator ;
+	rdfs:label "Provider Contract/SLA Verification"@en ;
+	rdfs:comment "The service provider makes available to clients SLAs adequate to manage the service and mitigate risks of service failure."@en ;
+	skos:definition "The service provider makes available to clients SLAs adequate to manage the service and mitigate risks of service failure."@en ;	
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderSLAVerification" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+
+
+seqos-indicator:ProviderEthics   a seqos-onto:KPIIndicator ;
+	rdfs:label "Provider Ethicality"@en ;
+	rdfs:comment "Ethicality refers to the manner in which the service provider conducts business; it includes business practices and ethics outside the scope of regulatory compliance. Ethicality includes fair practices with suppliers, customers, and employees."@en ;
+	skos:definition "Ethicality refers to the manner in which the service provider conducts business; it includes business practices and ethics outside the scope of regulatory compliance. Ethicality includes fair practices with suppliers, customers, and employees."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderEthics" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:ProviderPersonnelRequirements   a seqos-onto:KPIIndicator ;
+	rdfs:label "Provider Personnel Requirements"@en ;
+	rdfs:comment "The extent to which service provider personnel have the skills, experience, education, and certifications required to effectively deliver a service."@en ;
+	skos:definition "The extent to which service provider personnel have the skills, experience, education, and certifications required to effectively deliver a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderPersonnelRequirements" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:ProviderSupplyChain   a seqos-onto:KPIIndicator ;
+	rdfs:label "Provider Supply Chain"@en ;
+	rdfs:comment "The service provider ensures that any SLAs that must be supported by its suppliers are supported."@en ;
+	skos:definition "The service provider ensures that any SLAs that must be supported by its suppliers are supported."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderSupplyChain" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+seqos-indicator:ProviderSecurityCapabilities   a seqos-onto:KPIIndicator ;
+	rdfs:label "Security Capabilities"@en ;
+	rdfs:comment "The capabilities of service providers to ensure application, data, and infrastructure securiy based on the security requirements of the client."@en ;
+	skos:definition "The capabilities of service providers to ensure application, data, and infrastructure securiy based on the security requirements of the client."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProviderSecurityCapabilities" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+seqos-indicator:Sustainability   a seqos-onto:KPIIndicator ;
+	rdfs:label "Sustainability"@en ;
+	rdfs:comment "The impact on the economy, society and the environment of the service provider."@en ;
+	skos:definition "The impact on the economy, society and the environment of the service provider."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Sustainability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+#Agility indicators
+
+seqos-indicator:Adaptability a seqos-onto:KPIIndicator ;
+	rdfs:label "Adaptability"@en ;
+	rdfs:comment "The ability of the service provider to adjust to changes in client requirements."@en ;
+	skos:definition "The ability of the service provider to adjust to changes in client requirements."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Adaptability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+
+seqos-indicator:Capacity  a seqos-onto:KPIIndicator ;
+	rdfs:label "Capacity"@en ;
+	rdfs:comment "The maximum amount of a service that a service provider can deliver while meeting agreed SLAs."@en ;
+	skos:definition "The maximum amount of a service that a service provider can deliver while meeting agreed SLAs."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Capacity" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+
+seqos-indicator:Elasticity  a seqos-onto:KPIIndicator ;
+	rdfs:label "Elasticity"@en ;
+	rdfs:comment "The ability of a service to adjust its resource consumption to meet demand."@en ;
+	skos:definition "The ability of a service to adjust its resource consumption to meet demand."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Elasticity" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+
+seqos-indicator:Extensibility a seqos-onto:KPIIndicator ;
+	rdfs:label "Extensibility"@en ;
+	rdfs:comment "The ability to add new features or services to existing services."@en ;
+	skos:definition "The ability to add new features or services to existing services."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Extensibility" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+
+seqos-indicator:Flexibility  a seqos-onto:KPIIndicator ;
+	rdfs:label "Flexibility"@en ;
+	rdfs:comment "The ability to add or remove predefined features from a service."@en ;
+	skos:definition "The ability to add or remove predefined features from a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Flexibility" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+seqos-indicator:Portability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Portability"@en ;
+	rdfs:comment "The ability of a client to easily move a service from one service provider to another with minimal disruption."@en ;
+	skos:definition "The ability of a client to easily move a service from one service provider to another with minimal disruption."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Portability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+
+seqos-indicator:Scalability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Scalability"@en ;
+	rdfs:comment "The ability of a service provider to increase or decrease the amount of service available to meet client requirements."@en ;
+	skos:definition "The ability of a service provider to increase or decrease the amount of service available to meet client requirements."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Scalability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Agility .
+
+
+
+### Assurance indicators
+
+
+seqos-indicator:Availability a seqos-onto:KPIIndicator ;
+	rdfs:label "Availability"@en ;
+	rdfs:comment "The amount of time that a client can make use of a service."@en ;
+	skos:definition "The amount of time that a client can make use of a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Availability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+seqos-indicator:Maintainability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Maintainability"@en ;
+	rdfs:comment "Maintainability refers to the ability for the service provider to make modifications to the service to keep the service in a condition of good repair."@en ;
+	skos:definition "Maintainability refers to the ability for the service provider to make modifications to the service to keep the service in a condition of good repair."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Maintainability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+
+seqos-indicator:Recoverability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Recoverability"@en ;
+	rdfs:comment "Recoverability is the degree to which a service is able to quickly resume a normal state of operation after an unplanned disruption."@en ;
+	skos:definition "Recoverability is the degree to which a service is able to quickly resume a normal state of operation after an unplanned disruption."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Recoverability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+
+seqos-indicator:Reliability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Reliability"@en ;
+	rdfs:comment "Reliability reflects measures of how a service operates without failure under
+given conditions during a given time period."@en ;
+	skos:definition "Reliability reflects measures of how a service operates without failure under
+given conditions during a given time period."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Reliability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+
+seqos-indicator:Resiliency  a seqos-onto:KPIIndicator ;
+	rdfs:label "Resiliency"@en ;
+	rdfs:comment "The ability of a service to continue to operate properly in the event of a failure in
+one or more of its components."@en ;
+	skos:definition "The ability of a service to continue to operate properly in the event of a failure in
+one or more of its components."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Resiliency" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+seqos-indicator:Stability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Stability"@en ;
+	rdfs:comment "The degree to which the service is resistant to change, deterioration, or displacement."@en ;
+	skos:definition "The degree to which the service is resistant to change, deterioration, or displacement."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Stability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+
+seqos-indicator:Serviceability   a seqos-onto:KPIIndicator ;
+	rdfs:label "Serviceability"@en ;
+	rdfs:comment "The ease and efficiency of performing maintenance and correcting problems with the service."@en ;
+	skos:definition "The ease and efficiency of performing maintenance and correcting problems with the service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Serviceability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Assurance .
+
+### Financial indicators
+
+seqos-indicator:Acquisition   a seqos-onto:KPIIndicator ;
+	rdfs:label "Acquisition"@en ;
+	rdfs:comment "Any client costs to acquire the rights and ability to use a service and to move from an existing service to the new one."@en ;
+	skos:definition "Any client costs to acquire the rights and ability to use a service and to move
+from an existing service to the new one."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Acquisition" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Financial .
+
+
+seqos-indicator:OngoingCost   a seqos-onto:KPIIndicator ;
+	rdfs:label "On-going Cost"@en ;
+	rdfs:comment "The client cost to operate a service. This includes both recurring flat costs (e.g.,
+monthly access fees) and usage-based costs."@en ;
+	skos:definition "The client cost to operate a service. This includes both recurring flat costs (e.g.,
+monthly access fees) and usage-based costs."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "OngoingCost" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Financial .
+
+
+seqos-indicator:Profit   a seqos-onto:KPIIndicator ;
+	rdfs:label "Profit"@en ;
+	rdfs:comment "Arrangement between client and provider(s) under which costs or profits of a
+service are shared by the involved parties, according to an agreed upon formula."@en ;
+	skos:definition "Arrangement between client and provider(s) under which costs or profits of a
+service are shared by the involved parties, according to an agreed upon formula."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Profit" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Financial .
+
+### Performance indicators
+
+
+seqos-indicator:Accuracy    a seqos-onto:KPIIndicator ;
+	rdfs:label "Accuracy"@en ;
+	rdfs:comment "The extent to which a service adheres to its requirements."@en ;
+	skos:definition "The extent to which a service adheres to its requirements."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Accuracy" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Performance .
+
+
+
+seqos-indicator:Functionality     a seqos-onto:KPIIndicator ;
+	rdfs:label "Functionality"@en ;
+	rdfs:comment "The specific features provided by a service."@en ;
+	skos:definition "The specific features provided by a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Functionality 
+" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Performance .
+
+
+
+
+
+
+
+
 
 
 ### Organizations
+
+
 
 
 ### Projects
