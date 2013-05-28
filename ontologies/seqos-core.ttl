@@ -867,8 +867,7 @@ seqos-indicator:Functionality     a seqos-onto:KPIIndicator ;
 	seqos-onto:definition-provider seqos-org:CSMIC;
 	seqos-onto:weight "1.0"^^xsd:double ;
 	seqos-onto:high-low seqos-onto:High ;
-	skos:notation "Functionality 
-" ;
+	skos:notation "Functionality" ;
 	time:intervalStarts "2013"^^xsd:int ;
 	time:intervalFinishes "2013"^^xsd:int ;
 	skos:broader seqos-component:Performance .
@@ -877,14 +876,205 @@ seqos-indicator:Functionality     a seqos-onto:KPIIndicator ;
 
 
 
+seqos-indicator:Suitability     a seqos-onto:KPIIndicator ;
+	rdfs:label "Suitability"@en ;
+	rdfs:comment "How closely do the capabilities of the service match the needs of the client."@en ;
+	skos:definition "How closely do the capabilities of the service match the needs of the client."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Suitability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Performance .
 
 
+seqos-indicator:Interoperability a seqos-onto:KPIIndicator ;
+	rdfs:label "Suitability"@en ;
+	rdfs:comment "The ability of a service to easily interact with other services (from the same service provider and from other service providers)."@en ;
+	skos:definition "The ability of a service to easily interact with other services (from the same service provider and from other service providers)."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Interoperability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Performance .
 
+seqos-indicator:ServiceResponseTime a seqos-onto:KPIIndicator ;
+	rdfs:label "Service Response Time"@en ;
+	rdfs:comment "An indicator of the time between when a service is requested and when the response is available."@en ;
+	skos:definition "An indicator of the time between when a service is requested and when the response is available."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ServiceResponseTime" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Performance .
+
+
+### Security and Privacy indicators
+
+seqos-indicator:AccessControl a seqos-onto:KPIIndicator ;
+	rdfs:label "Access Control"@en ;
+	rdfs:comment "Policies and processes in use by the service provider to ensure that only the provider and client personnel with appropriate status/reasons to make use of or modify data/work products may do so."@en ;
+	skos:definition "Policies and processes in use by the service provider to ensure that only the provider and client personnel with appropriate status/reasons to make use of or modify data/work products may do so."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "AccessControl" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+seqos-indicator:GeographicalConstraint a seqos-onto:KPIIndicator ;
+	rdfs:label "Geographical Constraint"@en ;
+	rdfs:comment "The client's constraints on service location based on geography."@en ;
+	skos:definition "The client's constraints on service location based on geography."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "GeographicalConstraint" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+seqos-indicator:PoliticalConstraint a seqos-onto:KPIIndicator ;
+	rdfs:label "Political Constraint"@en ;
+	rdfs:comment "The client's constraints on service location based on politics."@en ;
+	skos:definition "The client's constraints on service location based on geography."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "PoliticalConstraint" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+seqos-indicator:DataIntegrity a seqos-onto:KPIIndicator ;
+	rdfs:label "Data Integrity"@en ;
+	rdfs:comment "Keeping the data that is created, used, and stored in its correct form so that clients may be confident that it is accurate and valid."@en ;
+	skos:definition "Keeping the data that is created, used, and stored in its correct form so that clients may be confident that it is accurate and valid."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "DataIntegrity" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+seqos-indicator:DataPrivacy a seqos-onto:KPIIndicator ;
+	rdfs:label "Data Privacy"@en ;
+	rdfs:comment "Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client."@en ;
+	skos:definition "Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "DataPrivacy" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+
+seqos-indicator:DataLoss a seqos-onto:KPIIndicator ;
+	rdfs:label "Data Loss"@en ;
+	rdfs:comment "Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client."@en ;
+	skos:definition "Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "DataLoss" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+seqos-indicator:EnvironmentSecurity a seqos-onto:KPIIndicator ;
+	rdfs:label "Physical & Environmental Security"@en ;
+	rdfs:comment "Policies and processes in use by the service provider to protect the provider
+facilities from unauthorized access, damage or interference."@en ;
+	skos:definition "Policies and processes in use by the service provider to protect the provider
+facilities from unauthorized access, damage or interference."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "EnvironmentSecurity" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+seqos-indicator:ProactiveThreat a seqos-onto:KPIIndicator ;
+	rdfs:label "Proactive Threat &  Vulnerability Management"@en ;
+	rdfs:comment "Mechanisms in place to ensure that the service is protected against know
+recurring threats as well as new evolving vulnerabilities."@en ;
+	skos:definition "Mechanisms in place to ensure that the service is protected against know
+recurring threats as well as new evolving vulnerabilities."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ProactiveThreat" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+
+seqos-indicator:Retention a seqos-onto:KPIIndicator ;
+	rdfs:label "Retention/Disposition"@en ;
+	rdfs:comment "The service provider’s data retention and disposition processes meet the clients'
+ requirements."@en ;
+	skos:definition "The service provider’s data retention and disposition processes meet the clients'
+ requirements."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Retention" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+
+seqos-indicator:Disposition a seqos-onto:KPIIndicator ;
+	rdfs:label "Retention/Disposition"@en ;
+	rdfs:comment "The service provider’s data retention and disposition processes meet the clients'
+ requirements."@en ;
+	skos:definition "The service provider’s data retention and disposition processes meet the clients'
+ requirements."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Disposition" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:SecurityPrivacy .
+
+### Usability indicators
 
 
 ### Organizations
 
 
+
+seqos-component:Usability skos:narrower seqos-indicator:Accessibility  .
+seqos-component:Usability skos:narrower seqos-indicator:ClientPersonnelRequirements .
+seqos-component:Usability skos:narrower seqos-indicator:Installability  .
+seqos-component:Usability skos:narrower seqos-indicator:Learnability .
+seqos-component:Usability skos:narrower seqos-indicator:Operability  .
+seqos-component:Usability skos:narrower seqos-indicator:Suitability  .
+seqos-component:Usability skos:narrower seqos-indicator:Transparency  .
+seqos-component:Usability skos:narrower seqos-indicator:Understandability  .
 
 
 ### Projects
