@@ -2,6 +2,8 @@
 @prefix seqos-onto: <http://purl.org/seerc/seqos/ontology/> .
 @prefix seqos-org: <http://purl.org/seerc/seqos/organization/> .
 @prefix seqos-people: <http://purl.org/seerc/seqos/people/> .
+@prefix seqos-component:  <http://purl.org/seerc/seqos/component/> .
+@prefix seqos-indicator:  <http://purl.org/seerc/seqos/indicator/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -20,7 +22,7 @@
 @prefix sdmx-metadata:   <http://purl.org/linked-data/sdmx/2009/metadata#> .
 @prefix sdmx-code:       <http://purl.org/linked-data/sdmx/2009/code#> .
 @prefix sdmx-subject:    <http://purl.org/linked-data/sdmx/2009/subject#> .
-
+@prefix time:  <http://www.w3.org/2006/time#> .
 
 <http://purl.org/seerc/seqos/ontology>
     a owl:Ontology;
@@ -68,20 +70,28 @@ seqos-onto:Indicator a owl:Class, rdfs:Class;
 	rdfs:comment "Element part of a component. Observations are related to an indicator."@en;
 .
 
+seqos-onto:QuantativeIndicator a owl:Class, rdfs:Class;
+	rdfs:subClassOf seqos-onto:Indicator ;
+	rdfs:label "Quantitative Indicator"@en ;
+	rdfs:comment "It is an indicator with an objective value."@en;
+.
+
+seqos-onto:QualitativeIndicator a owl:Class, rdfs:Class;
+	rdfs:subClassOf seqos-onto:Indicator ;
+	rdfs:label "Qualitative Indicator"@en ;
+	rdfs:comment "It is an indicator with a subjective value."@en;
+.
+
+seqos-onto:QualitativeIndicator owl:disjointWith seqos-onto:QuantativeIndicator .
+
+
 
 seqos-onto:KPIIndicator a owl:Class, rdfs:Class;
-	rdfs:subClassOf seqos-onto:Indicator ;
+	rdfs:subClassOf seqos-onto:QuantativeIndicator,  seqos-onto:QualitativeIndicator;
 	rdfs:label "KPI Indicator"@en ;
 	rdfs:comment "Key Performance Indicator."@en;
 .
 
-
-seqos-onto:KPIExternalIndicator a owl:Class, rdfs:Class;
-	rdfs:subClassOf seqos-onto:Indicator ;
-	rdfs:label "KPI External Indicator"@en ;
-	rdfs:comment "This indicator is established by third parties but its observations are not part of a component."@en;
-
-.
 
 ###  Taxonomy of potential values
 
@@ -184,13 +194,227 @@ seqos-onto:data-range a owl:ObjectProperty, rdf:Property;
 . 
 
 
+### Components
+
+
+seqos-component:ds
+      a       void:Dataset ;
+      rdfs:label "SEERC| SEQoS | Components"@en ;
+      rdfs:comment "Dataset of components that aggregates different indicators and are part of a subindex."@en ;
+      dcterms:created "2012-20-05"^^xsd:date;
+      dcterms:modified "2012-08-31"^^xsd:date;
+      dcterms:title "Core SeQoS ontology"@en;
+      dcterms:author seqos-people:Chema, seqos-org:SEERC ;
+      dcterms:publisher  seqos-people:Chema;
+      dcterms:contributor  seqos-org:SEERC, seqos-org:RELATE ;
+      dcterms:license <http://opendatacommons.org/licenses/by/1.0/>;
+      void:exampleResource seqos-component:CommunicationsInfrastructure ;
+      void:uriRegexPattern
+              "http://purl.org/seerc/seqos/component/.+" ;
+      void:vocabulary  rdfs: ,  skos: ;
+      foaf:homepage <http://purl.org/seerc/seqos/> .
 
 
 
 
+seqos-component:Accountability a seqos-onto:Component;
+	rdfs:label "Accountability"@en;
+	rdfs:comment "This component is used to measure the properties related to the service provider
+organization. These properties may be independent of the service being provided."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+seqos-component:Accountability skos:narrower seqos-indicator:Auditability.
+seqos-component:Accountability skos:narrower seqos-indicator:Compliance.
+seqos-component:Accountability skos:narrower seqos-indicator:ContractingExperience.
+seqos-component:Accountability skos:narrower seqos-indicator:DataOwnership.
+seqos-component:Accountability skos:narrower seqos-indicator:EaseDoingBusiness.
+seqos-component:Accountability skos:narrower seqos-indicator:Governance.
+seqos-component:Accountability skos:narrower seqos-indicator:Ownership .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderStability .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderCertifications .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderSLAVerification .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderEthics .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderPersonnelRequirements .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderSupplyChain .
+seqos-component:Accountability skos:narrower seqos-indicator:ProviderSecurityCapabilities .
+seqos-component:Accountability skos:narrower seqos-indicator:Sustainability .
+
+seqos-component:Agility a seqos-onto:Component;
+	rdfs:label "Agility"@en;
+	rdfs:comment "Indicates the impact of a service upon a client's ability to change direction, strategy, or tactics quickly
+and with minimal disruption."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+
+seqos-component:Agility skos:narrower seqos-indicator:Adaptability .
+seqos-component:Agility skos:narrower seqos-indicator:Capacity .
+seqos-component:Agility skos:narrower seqos-indicator:Elasticity .
+seqos-component:Agility skos:narrower seqos-indicator:Extensibility .
+seqos-component:Agility skos:narrower seqos-indicator:Flexibility .
+seqos-component:Agility skos:narrower seqos-indicator:Portability .
+seqos-component:Agility skos:narrower seqos-indicator:Scalability .
 
 
 
+seqos-component:Assurance a seqos-onto:Component;
+	rdfs:label "Assurance"@en;
+	rdfs:comment "This category includes key attributes that indicate how likely it is that the service will be available as
+specified."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+seqos-component:Assurance skos:narrower seqos-indicator:Availability .
+seqos-component:Assurance skos:narrower seqos-indicator:Maintainability  .
+seqos-component:Assurance skos:narrower seqos-indicator:Recoverability  .
+seqos-component:Assurance skos:narrower seqos-indicator:Reliability  .
+seqos-component:Assurance skos:narrower seqos-indicator:Resiliency .
+seqos-component:Assurance skos:narrower seqos-indicator:Stability .
+seqos-component:Assurance skos:narrower seqos-indicator:Ability  .
+
+
+seqos-component:Financial a seqos-onto:Component;
+	rdfs:label "Financial"@en;
+	rdfs:comment "The amount of money spent on the service by the client."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+
+seqos-component:Financial skos:narrower seqos-indicator:Acquisition .
+seqos-component:Financial skos:narrower seqos-indicator:OngoingCost .
+seqos-component:Financial skos:narrower seqos-indicator:Profit .
+
+
+
+
+seqos-component:Performance a seqos-onto:Component;
+	rdfs:label "Performance"@en;
+	rdfs:comment "This category covers the features and functions of the provided services."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+
+seqos-component:Performance skos:narrower seqos-indicator:Accuracy .
+seqos-component:Performance skos:narrower seqos-indicator:Functionality  .
+seqos-component:Performance skos:narrower seqos-indicator:Suitability  .
+seqos-component:Performance skos:narrower seqos-indicator:Interoperability  .
+seqos-component:Performance skos:narrower seqos-indicator:ServiceResponseTime  .
+
+
+
+
+seqos-component:SecurityPrivacy a seqos-onto:Component;
+	rdfs:label "Security and Privacy"@en;
+	rdfs:comment "This category includes attributes that indicate the effectiveness of a service provider's controls on
+access to services, service data, and the physical facilities from which services are provided."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:AccessControl  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:GeographicalConstraint  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:PoliticalConstraint  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:DataIntegrity  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:DataPrivacy  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:DataLoss .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:EnvironmentSecurity  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:ProactiveThreat  .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:Retention .
+seqos-component:SecurityPrivacy skos:narrower seqos-indicator:Disposition .
+
+
+
+seqos-component:Usability a seqos-onto:Component;
+	rdfs:label "Usability"@en;
+	rdfs:comment "The ease with which a service can be used."@en;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;
+	#skos:broader seqos-index:Readiness;
+	seqos-onto:weight "0.3333"^^xsd:double;
+.
+
+
+seqos-component:Usability skos:narrower seqos-indicator:Accessibility  .
+seqos-component:Usability skos:narrower seqos-indicator:ClientPersonnelRequirements .
+seqos-component:Usability skos:narrower seqos-indicator:Installability  .
+seqos-component:Usability skos:narrower seqos-indicator:Learnability .
+seqos-component:Usability skos:narrower seqos-indicator:Operability  .
+seqos-component:Usability skos:narrower seqos-indicator:Suitability  .
+seqos-component:Usability skos:narrower seqos-indicator:Transparency  .
+seqos-component:Usability skos:narrower seqos-indicator:Understandability  .
+
+
+### Indicators
+
+
+seqos-indicator:ds
+      a       void:Dataset ;
+      rdfs:label "SEERC| SEQoS | Indicators"@en ;
+      rdfs:comment "Indicators used to retrieve observations per country and year. They can also be taken as measures."@en ;
+      dcterms:created "2013-05-20"^^xsd:date;
+      dcterms:modified "2013-05-20-"^^xsd:date;
+      dcterms:title "Indicators of Core SeQoS ontology"@en;
+      dcterms:author seqos-people:Chema, seqos-org:SEERC ;
+      dcterms:publisher  seqos-people:Chema;
+      dcterms:contributor  seqos-org:SEERC, seqos-org:RELATE ;
+      dcterms:license <http://opendatacommons.org/licenses/by/1.0/>;
+      void:exampleResource seqos-component:CommunicationsInfrastructure ;
+      void:uriRegexPattern
+              "http://purl.org/seerc/seqos/indicator/.+" ;
+      void:vocabulary  rdfs: ,  skos: ;
+      foaf:homepage <http://purl.org/seerc/seqos/>.
+
+
+seqos-indicator:Auditability  a seqos-onto:KPIIndicator ;
+	rdfs:label "Auditability"@en ;
+	rdfs:comment "The ability of a client to verify that the service provider is adhering to the standards, processes, and policies that they follow."@en ;
+	skos:definition "The ability of a client to verify that the service provider is adhering to the standards, processes, and policies that they follow."@en ;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Auditability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+seqos-indicator:Compliance  a seqos-onto:KPIIndicator ;
+	rdfs:label "Compliance"@en ;
+	rdfs:comment "Standards, processes, and policies committed to by the service provider are followed."@en ;
+	skos:definition "Standards, processes, and policies committed to by the service provider are followed."@en ;
+	seqos-onto:ref-definition <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:ref-provider seqos-org:CSMIC;seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Compliance" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Accountability .
+
+
+
+
+### Organizations
+
+
+### Projects
 
 
 
