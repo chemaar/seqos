@@ -1062,19 +1062,118 @@ seqos-indicator:Disposition a seqos-onto:KPIIndicator ;
 
 ### Usability indicators
 
+seqos-indicator:Accessibility a seqos-onto:KPIIndicator ;
+	rdfs:label "Accessibility"@en ;
+	rdfs:comment "The degree to which a service is operable by users with disabilities."@en ;
+	skos:definition "The degree to which a service is operable by users with disabilities."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Accessibility" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+
+seqos-indicator:ClientPersonnelRequirements a seqos-onto:KPIIndicator ;
+	rdfs:label "Client Personnel Requirements"@en ;
+	rdfs:comment "The minimum number of personnel satisfying roles, skills, experience, education,
+and certification required of the client to effectively utilize a service."@en ;
+	skos:definition "The minimum number of personnel satisfying roles, skills, experience, education,
+and certification required of the client to effectively utilize a service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "ClientPersonnelRequirements" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+seqos-indicator:Installability a seqos-onto:KPIIndicator ;
+	rdfs:label "Client Personnel Requirements"@en ;
+	rdfs:comment "Installability characterizes the time and effort required to get a service ready for
+delivery (where applicable)."@en ;
+	skos:definition "Installability characterizes the time and effort required to get a service ready for
+delivery (where applicable)."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Installability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+seqos-indicator:Learnability a seqos-onto:KPIIndicator ;
+	rdfs:label "Learnability"@en ;
+	rdfs:comment "The effort required of users to learn to use the service."@en ;
+	skos:definition "The effort required of users to learn to use the service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Learnability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+
+seqos-indicator:Operability a seqos-onto:KPIIndicator ;
+	rdfs:label "Operability"@en ;
+	rdfs:comment "The ability of a service to be easily operated by users."@en ;
+	skos:definition "The ability of a service to be easily operated by users."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Operability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+seqos-indicator:Suitability a seqos-onto:KPIIndicator ;
+	rdfs:label "Suitability"@en ;
+	rdfs:comment "How closely do the capabilities of the service match the needs of the client."@en ;
+	skos:definition "How closely do the capabilities of the service match the needs of the client."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Suitability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+seqos-indicator:Transparency a seqos-onto:KPIIndicator ;
+	rdfs:label "Transparency"@en ;
+	rdfs:comment "The extent to which users are able to determine when changes in a feature or component of the service occur and whether these changes impact usability."@en ;
+	skos:definition "The extent to which users are able to determine when changes in a feature or component of the service occur and whether these changes impact usability."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Transparency" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
+seqos-indicator:Understandability a seqos-onto:KPIIndicator ;
+	rdfs:label "Understandability"@en ;
+	rdfs:comment "The ease with which users can understand the capabilities and operation of the service."@en ;
+	skos:definition "The ease with which users can understand the capabilities and operation of the service."@en ;
+	seqos-onto:definition-source <http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf>;
+	seqos-onto:definition-provider seqos-org:CSMIC;
+	seqos-onto:weight "1.0"^^xsd:double ;
+	seqos-onto:high-low seqos-onto:High ;
+	skos:notation "Understandability" ;
+	time:intervalStarts "2013"^^xsd:int ;
+	time:intervalFinishes "2013"^^xsd:int ;
+	skos:broader seqos-component:Usability .
+
 
 ### Organizations
-
-
-
-seqos-component:Usability skos:narrower seqos-indicator:Accessibility  .
-seqos-component:Usability skos:narrower seqos-indicator:ClientPersonnelRequirements .
-seqos-component:Usability skos:narrower seqos-indicator:Installability  .
-seqos-component:Usability skos:narrower seqos-indicator:Learnability .
-seqos-component:Usability skos:narrower seqos-indicator:Operability  .
-seqos-component:Usability skos:narrower seqos-indicator:Suitability  .
-seqos-component:Usability skos:narrower seqos-indicator:Transparency  .
-seqos-component:Usability skos:narrower seqos-indicator:Understandability  .
 
 
 ### Projects
