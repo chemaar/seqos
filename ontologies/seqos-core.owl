@@ -1,50 +1,1174 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-]>
-
-
-<rdf:RDF xmlns="http://purl.org/seerc/seqos/"
-     xml:base="http://purl.org/seerc/seqos/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
-    <owl:Ontology rdf:about="http://purl.org/seerc/seqos/">
-        <rdfs:comment xml:lang="en">This is the first version of the SeQoS taxonomy for representing QoS indicators and modeling an index.</rdfs:comment>
-        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/seerc/seqos/Index -->
-
-    <owl:Class rdf:about="http://purl.org/seerc/seqos/Index">
-        <rdfs:label>Index</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:comment xml:lang="en">The class of index that can be modeled in a Cloud Environment.</rdfs:comment>
-    </owl:Class>
+<rdf:RDF xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#" xmlns:void="http://rdfs.org/ns/void#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:qb="http://purl.org/linked-data/cube#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:sdmx-concept="http://purl.org/linked-data/sdmx/2009/concept#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:org="http://www.w3.org/ns/org#" xmlns:sdmx-dimension="http://purl.org/linked-data/sdmx/2009/dimension#" xmlns:time="http://www.w3.org/2006/time#" xmlns:seqos-project="http://purl.org/seerc/seqos/project/" xmlns:v="http://www.w3.org/2006/vcard/ns#" xmlns:seqos-onto="http://purl.org/seerc/seqos/ontology/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sdmx-code="http://purl.org/linked-data/sdmx/2009/code#" xmlns:seqos-indicator="http://purl.org/seerc/seqos/indicator/" xmlns:seqos-org="http://purl.org/seerc/seqos/organization/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:seqos-component="http://purl.org/seerc/seqos/component/" xmlns:seqos-people="http://purl.org/seerc/seqos/people/">
+	<owl:Ontology rdf:about="http://purl.org/seerc/seqos/ontology">
+		<owl:versionInfo>0.1</owl:versionInfo>
+		<rdfs:label xml:lang="en">Core SeQoS ontology</rdfs:label>
+		<rdfs:comment xml:lang="en">This is the first version of the SeQoS taxonomy for representing QoS indicators and modeling an index.</rdfs:comment>
+		<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-20-05</dcterms:created>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-08-31</dcterms:modified>
+		<dcterms:title xml:lang="en">Core SeQoS ontology</dcterms:title>
+		<dcterms:author>
+			<foaf:Person rdf:about="http://purl.org/seerc/seqos/people/Chema">
+				<foaf:depiction rdf:resource="http://www.weso.es/img/joseMaria.jpg" />
+				<foaf:family_name>Alvarez Rodríguez</foaf:family_name>
+				<foaf:givenname>Jose María</foaf:givenname>
+				<foaf:homepage rdf:resource="http://www.josemalvarez.es" />
+				<foaf:name>Jose María</foaf:name>
+				<foaf:nick>chema</foaf:nick>
+				<foaf:title>Dr.</foaf:title>
+				<org:memberOf rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+				<org:memberOf rdf:resource="http://purl.org/seerc/seqos/project/RELATE" />
+				<foaf:workInfoHomepage rdf:resource="http://www.weso.es/Contents/about" />
+				<foaf:workplaceHomepage rdf:resource="http://www.weso.es/" />
+				<rdfs:seeAlso rdf:resource="http://www.josemalvarez.es/foaf.rdf#me" />
+			</foaf:Person>
+		</dcterms:author>
+		<dcterms:author>
+			<org:Organization rdf:about="http://purl.org/seerc/seqos/organization/SEERC">
+				<rdfs:label xml:lang="en">South East Research European Center</rdfs:label>
+				<org:identifier>SEERC</org:identifier>
+				<foaf:homepage rdf:resource="http://www.seerc.org" />
+				<rdf:type rdf:resource="http://www.w3.org/ns/org#Organization" />
+				<rdfs:label xml:lang="en">South East Research European Center</rdfs:label>
+				<rdfs:comment xml:lang="en">South East Research European Center at the City College, an International Faculty of the University of Sheffield</rdfs:comment>
+				<org:identifier xml:lang="en">SEERC</org:identifier>
+				<foaf:homepage rdf:resource="http://www.seerc.org" />
+				<org:hasSite>
+					<rdf:Description>
+						<rdfs:label xml:lang="en">South East Research European Center</rdfs:label>
+						<org:siteAddress>
+							<rdf:Description>
+								<v:fn>South East Research European Center</v:fn>
+								<v:org>
+									<rdf:Description>
+										<v:organisation-name xml:lang="en">City College, an International Faculty of the University of Sheffield</v:organisation-name>
+										<v:organisation-unit xml:lang="en">South East Research European Center</v:organisation-unit>
+									</rdf:Description>
+								</v:org>
+								<v:adr>
+									<v:Work>
+										<v:country-name xml:lang="en">Greece</v:country-name>
+										<v:locality xml:lang="en">Thessaloniki</v:locality>
+										<v:postal-code>54622</v:postal-code>
+										<v:street-address>24 Proxenou Koromila Street</v:street-address>
+									</v:Work>
+								</v:adr>
+								<v:geo v:latitude="40.630703" v:longitude="22.944013" />
+								<v:tel>
+									<v:Fax>
+										<rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Work" />
+										<rdf:value>+30 2310 253477</rdf:value>
+									</v:Fax>
+								</v:tel>
+								<v:email rdf:resource="mailto:contact@seerc.org" />
+								<v:logo rdf:resource="http://www.seerc.org/templates/seerc/images/seerc-logo-no-grad.png" />
+							</rdf:Description>
+						</org:siteAddress>
+					</rdf:Description>
+				</org:hasSite>
+			</org:Organization>
+		</dcterms:author>
+		<dcterms:publisher rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:contributor>
+			<org:Organization rdf:about="http://purl.org/seerc/seqos/project/RELATE">
+				<rdfs:label xml:lang="en">RELATE</rdfs:label>
+				<rdfs:comment xml:lang="en">TO-DO it is a DOAP project</rdfs:comment>
+				<org:identifier>RELATE</org:identifier>
+				<foaf:homepage rdf:resource="http://www.relate-itn.eu/" />
+			</org:Organization>
+		</dcterms:contributor>
+		<dcterms:license rdf:resource="http://opendatacommons.org/licenses/by/1.0/" />
+	</owl:Ontology>
+	<owl:Class rdf:about="http://purl.org/seerc/seqos/ontology/Index">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+		<rdfs:label xml:lang="en">Index</rdfs:label>
+		<rdfs:comment xml:lang="en">The class of index that can be modeled in a Cloud Environment.</rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:about="http://purl.org/seerc/seqos/ontology/Component">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+		<rdfs:label xml:lang="en">Component</rdfs:label>
+		<rdfs:comment xml:lang="en">Element part of an index. It is comprised of indicators.</rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:about="http://purl.org/seerc/seqos/ontology/Indicator">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+		<rdfs:label xml:lang="en">Indicator</rdfs:label>
+		<rdfs:comment xml:lang="en">Element part of a component. Observations are related to an indicator.</rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:about="http://purl.org/seerc/seqos/ontology/QuantativeIndicator">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+		<rdfs:subClassOf rdf:resource="http://purl.org/seerc/seqos/ontology/Indicator" />
+		<rdfs:label xml:lang="en">Quantitative Indicator</rdfs:label>
+		<rdfs:comment xml:lang="en">It is an indicator with an objective value.</rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:about="http://purl.org/seerc/seqos/ontology/KPIIndicator">
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+		<rdfs:subClassOf rdf:resource="http://purl.org/seerc/seqos/ontology/QuantativeIndicator" />
+		<rdfs:subClassOf>
+			<owl:Class rdf:about="http://purl.org/seerc/seqos/ontology/QualitativeIndicator">
+				<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+				<rdfs:subClassOf rdf:resource="http://purl.org/seerc/seqos/ontology/Indicator" />
+				<rdfs:label xml:lang="en">Qualitative Indicator</rdfs:label>
+				<rdfs:comment xml:lang="en">It is an indicator with a subjective value.</rdfs:comment>
+				<owl:disjointWith rdf:resource="http://purl.org/seerc/seqos/ontology/QuantativeIndicator" />
+			</owl:Class>
+		</rdfs:subClassOf>
+		<rdfs:label xml:lang="en">KPI Indicator</rdfs:label>
+		<rdfs:comment xml:lang="en">Key Performance Indicator.</rdfs:comment>
+	</owl:Class>
+	<skos:Concept rdf:about="http://purl.org/seerc/seqos/ontology/High">
+		<rdfs:label xml:lang="en">High</rdfs:label>
+		<rdfs:comment xml:lang="en">A high value is preferred than a lower one</rdfs:comment>
+	</skos:Concept>
+	<skos:Concept rdf:about="http://purl.org/seerc/seqos/ontology/Low">
+		<rdfs:label xml:lang="en">Low</rdfs:label>
+		<rdfs:comment xml:lang="en">A low value is preferred than a higher one</rdfs:comment>
+	</skos:Concept>
+	<rdf:Property rdf:about="http://purl.org/seerc/seqos/ontology/ref-type">
+		<rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty" />
+		<rdfs:label xml:lang="en">URI to an Index, Component or Indicator</rdfs:label>
+		<rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+	</rdf:Property>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/value">
+		<rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty" />
+		<rdfs:label xml:lang="en">Observation's value</rdfs:label>
+		<rdfs:comment xml:lang="en">Values should be accessed through a proxy class</rdfs:comment>
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/linked-data/sdmx/2009/measure#obsValue" />
+	</owl:ObjectProperty>
+	<rdf:Property rdf:about="http://purl.org/seerc/seqos/ontology/ref-period">
+		<rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty" />
+		<rdfs:label xml:lang="en">Period</rdfs:label>
+		<rdfs:comment xml:lang="en">The value of an observation can be related to a time period instead of a timestamp.</rdfs:comment>
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/linked-data/sdmx/2009/dimension#ref-period" />
+		<rdfs:range rdf:resource="http://www.w3.org/2006/time#Interval" />
+		<qb:concept rdf:resource="http://purl.org/linked-data/sdmx/2009/concept#ref-period" />
+	</rdf:Property>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/timestamp">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:label xml:lang="en">Timestamp of an observation</rdfs:label>
+		<rdfs:comment xml:lang="en">It is used to specify the precise moment in which the observation has been generated.</rdfs:comment>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/md5-checksum">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:label xml:lang="en">MD5 Checksum of an observation</rdfs:label>
+		<rdfs:comment xml:lang="en">It is calculated generating the MD5 hash of indicator, type of dataset, provider code, timestamp, value and SEQOS (all fields separated by #). </rdfs:comment>
+		<rdfs:comment xml:lang="en">Accuracy#Raw#SalesForce#1111111#SEQOS = afb91eeb723240b2b07e435156b1ee4b</rdfs:comment>
+	</owl:ObjectProperty>
+	<skos:Concept rdf:about="http://purl.org/seerc/seqos/ontology/obsStatus-N">
+		<rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/concept#Concept" />
+		<rdf:type rdf:resource="http://purl.org/linked-data/sdmx/2009/code#ObsStatus" />
+		<rdfs:label xml:lang="en">Normalised status</rdfs:label>
+		<skos:topConceptOf rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus" />
+		<skos:inScheme rdf:resource="http://purl.org/linked-data/sdmx/2009/code#obsStatus" />
+		<skos:prefLabel xml:lang="en">Normalised</skos:prefLabel>
+		<skos:notation>N</skos:notation>
+		<skos:definition xml:lang="en">It is used when an observation status is normalised.</skos:definition>
+	</skos:Concept>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/definition-source">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:label xml:lang="en">definition-source</rdfs:label>
+		<rdfs:comment xml:lang="en">URI to the definition of some component or indicator</rdfs:comment>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/definition-provider">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/source" />
+		<rdfs:label xml:lang="en">provider-link</rdfs:label>
+		<rdfs:comment xml:lang="en">URI to the provider of a definition</rdfs:comment>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/high-low">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:label xml:lang="en">high-low</rdfs:label>
+		<rdfs:comment xml:lang="en">High/Low which is the best value?</rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/weight">
+		<rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty" />
+		<rdfs:label xml:lang="en">Weight value of an indicator or component</rdfs:label>
+		<rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+		<rdfs:subPropertyOf rdf:resource="http://purl.org/linked-data/sdmx/2009/measure#obsValue" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://purl.org/seerc/seqos/ontology/data-range">
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" />
+		<rdfs:label xml:lang="en">data-range</rdfs:label>
+		<rdfs:comment xml:lang="en">Range of data</rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+	</owl:ObjectProperty>
+	<void:Dataset rdf:about="http://purl.org/seerc/seqos/component/ds">
+		<rdfs:label xml:lang="en">SEERC| SEQoS | Components</rdfs:label>
+		<rdfs:comment xml:lang="en">Dataset of components that aggregates different indicators and are part of a subindex.</rdfs:comment>
+		<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-20-05</dcterms:created>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-08-31</dcterms:modified>
+		<dcterms:title xml:lang="en">Core SeQoS ontology</dcterms:title>
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:publisher rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/RELATE" />
+		<dcterms:license rdf:resource="http://opendatacommons.org/licenses/by/1.0/" />
+		<void:exampleResource rdf:resource="http://purl.org/seerc/seqos/component/CommunicationsInfrastructure" />
+		<void:uriRegexPattern>http://purl.org/seerc/seqos/component/.+</void:uriRegexPattern>
+		<void:vocabulary rdf:resource="http://www.w3.org/2000/01/rdf-schema#" />
+		<void:vocabulary rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+		<foaf:homepage rdf:resource="http://purl.org/seerc/seqos/" />
+	</void:Dataset>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/Accountability">
+		<rdfs:label xml:lang="en">Accountability</rdfs:label>
+		<rdfs:comment xml:lang="en">This component is used to measure the properties related to the service provider
+organization. These properties may be independent of the service being provided.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider>
+			<org:Organization rdf:about="http://purl.org/seerc/seqos/organization/CSMIC">
+				<rdfs:label xml:lang="en">Service Measurement Index Version 1.0</rdfs:label>
+				<rdfs:comment xml:lang="en">TO-DO it is a DOAP project</rdfs:comment>
+				<org:identifier>CSMIC</org:identifier>
+				<foaf:homepage rdf:resource="http://csmic.org/" />
+			</org:Organization>
+		</seqos-onto:definition-provider>
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Auditability">
+				<rdfs:label xml:lang="en">Auditability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a client to verify that the service provider is adhering to the standards, processes, and policies that they follow.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a client to verify that the service provider is adhering to the standards, processes, and policies that they follow.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Auditability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Compliance">
+				<rdfs:label xml:lang="en">Compliance</rdfs:label>
+				<rdfs:comment xml:lang="en">Standards, processes, and policies committed to by the service provider are followed.</rdfs:comment>
+				<skos:definition xml:lang="en">Standards, processes, and policies committed to by the service provider are followed.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Compliance</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ContractingExperience">
+				<rdfs:label xml:lang="en">Contracting Experience</rdfs:label>
+				<rdfs:comment xml:lang="en">Indicators of client effort and satisfaction with the process of entering into the agreements required to use a service.</rdfs:comment>
+				<skos:definition xml:lang="en">Indicators of client effort and satisfaction with the process of entering into the agreements required to use a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ContractingExperience</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/DataOwnership">
+				<rdfs:label xml:lang="en">Data Ownership</rdfs:label>
+				<rdfs:comment xml:lang="en">The Level of rights a client has over client data associated with a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The Level of rights a client has over client data associated with a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>DataOwnership</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/EaseDoingBusiness">
+				<rdfs:label xml:lang="en">Ease of Doing Business</rdfs:label>
+				<rdfs:comment xml:lang="en">Client satisfaction with the ability to do business with a service provider.</rdfs:comment>
+				<skos:definition xml:lang="en">Client satisfaction with the ability to do business with a service provider.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>EaseDoingBusiness</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Governance">
+				<rdfs:label xml:lang="en">Ease of Doing Business</rdfs:label>
+				<rdfs:comment xml:lang="en">The processes used by the service provider to manage client expectations, issues and service performance.</rdfs:comment>
+				<skos:definition xml:lang="en">The processes used by the service provider to manage client expectations, issues and service performance.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Governance</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Ownership">
+				<rdfs:label xml:lang="en">Ownership</rdfs:label>
+				<rdfs:comment xml:lang="en">The level of rights a client has over software licenses, intellectual property and data associated with a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The level of rights a client has over software licenses, intellectual property and data associated with a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Ownership</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderStability">
+				<rdfs:label xml:lang="en">Provider business stability</rdfs:label>
+				<rdfs:comment xml:lang="en">The likelihood that the service provider will continue to exist throughout the contracted term.</rdfs:comment>
+				<skos:definition xml:lang="en">The likelihood that the service provider will continue to exist throughout the contracted term.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderStability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderCertifications">
+				<rdfs:label xml:lang="en">Provider Certifications</rdfs:label>
+				<rdfs:comment xml:lang="en">The service provider maintains current certifications for standards relevant to their clients' requirements.</rdfs:comment>
+				<skos:definition xml:lang="en">The service provider maintains current certifications for standards relevant to their clients' requirements.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderCertifications</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderSLAVerification">
+				<rdfs:label xml:lang="en">Provider Contract/SLA Verification</rdfs:label>
+				<rdfs:comment xml:lang="en">The service provider makes available to clients SLAs adequate to manage the service and mitigate risks of service failure.</rdfs:comment>
+				<skos:definition xml:lang="en">The service provider makes available to clients SLAs adequate to manage the service and mitigate risks of service failure.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderSLAVerification</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderEthics">
+				<rdfs:label xml:lang="en">Provider Ethicality</rdfs:label>
+				<rdfs:comment xml:lang="en">Ethicality refers to the manner in which the service provider conducts business; it includes business practices and ethics outside the scope of regulatory compliance. Ethicality includes fair practices with suppliers, customers, and employees.</rdfs:comment>
+				<skos:definition xml:lang="en">Ethicality refers to the manner in which the service provider conducts business; it includes business practices and ethics outside the scope of regulatory compliance. Ethicality includes fair practices with suppliers, customers, and employees.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderEthics</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderPersonnelRequirements">
+				<rdfs:label xml:lang="en">Provider Personnel Requirements</rdfs:label>
+				<rdfs:comment xml:lang="en">The extent to which service provider personnel have the skills, experience, education, and certifications required to effectively deliver a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The extent to which service provider personnel have the skills, experience, education, and certifications required to effectively deliver a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderPersonnelRequirements</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderSupplyChain">
+				<rdfs:label xml:lang="en">Provider Supply Chain</rdfs:label>
+				<rdfs:comment xml:lang="en">The service provider ensures that any SLAs that must be supported by its suppliers are supported.</rdfs:comment>
+				<skos:definition xml:lang="en">The service provider ensures that any SLAs that must be supported by its suppliers are supported.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderSupplyChain</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProviderSecurityCapabilities">
+				<rdfs:label xml:lang="en">Security Capabilities</rdfs:label>
+				<rdfs:comment xml:lang="en">The capabilities of service providers to ensure application, data, and infrastructure securiy based on the security requirements of the client.</rdfs:comment>
+				<skos:definition xml:lang="en">The capabilities of service providers to ensure application, data, and infrastructure securiy based on the security requirements of the client.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProviderSecurityCapabilities</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Sustainability">
+				<rdfs:label xml:lang="en">Sustainability</rdfs:label>
+				<rdfs:comment xml:lang="en">The impact on the economy, society and the environment of the service provider.</rdfs:comment>
+				<skos:definition xml:lang="en">The impact on the economy, society and the environment of the service provider.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Sustainability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Accountability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/Agility">
+		<rdfs:label xml:lang="en">Agility</rdfs:label>
+		<rdfs:comment xml:lang="en">Indicates the impact of a service upon a client's ability to change direction, strategy, or tactics quickly
+and with minimal disruption.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Adaptability">
+				<rdfs:label xml:lang="en">Adaptability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of the service provider to adjust to changes in client requirements.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of the service provider to adjust to changes in client requirements.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Adaptability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Capacity">
+				<rdfs:label xml:lang="en">Capacity</rdfs:label>
+				<rdfs:comment xml:lang="en">The maximum amount of a service that a service provider can deliver while meeting agreed SLAs.</rdfs:comment>
+				<skos:definition xml:lang="en">The maximum amount of a service that a service provider can deliver while meeting agreed SLAs.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Capacity</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Elasticity">
+				<rdfs:label xml:lang="en">Elasticity</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a service to adjust its resource consumption to meet demand.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a service to adjust its resource consumption to meet demand.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Elasticity</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Extensibility">
+				<rdfs:label xml:lang="en">Extensibility</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability to add new features or services to existing services.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability to add new features or services to existing services.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Extensibility</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Flexibility">
+				<rdfs:label xml:lang="en">Flexibility</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability to add or remove predefined features from a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability to add or remove predefined features from a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Flexibility</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Portability">
+				<rdfs:label xml:lang="en">Portability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a client to easily move a service from one service provider to another with minimal disruption.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a client to easily move a service from one service provider to another with minimal disruption.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Portability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Scalability">
+				<rdfs:label xml:lang="en">Scalability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a service provider to increase or decrease the amount of service available to meet client requirements.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a service provider to increase or decrease the amount of service available to meet client requirements.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Scalability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Agility" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/Assurance">
+		<rdfs:label xml:lang="en">Assurance</rdfs:label>
+		<rdfs:comment xml:lang="en">This category includes key attributes that indicate how likely it is that the service will be available as
+specified.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Availability">
+				<rdfs:label xml:lang="en">Availability</rdfs:label>
+				<rdfs:comment xml:lang="en">The amount of time that a client can make use of a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The amount of time that a client can make use of a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Availability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Maintainability">
+				<rdfs:label xml:lang="en">Maintainability</rdfs:label>
+				<rdfs:comment xml:lang="en">Maintainability refers to the ability for the service provider to make modifications to the service to keep the service in a condition of good repair.</rdfs:comment>
+				<skos:definition xml:lang="en">Maintainability refers to the ability for the service provider to make modifications to the service to keep the service in a condition of good repair.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Maintainability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Recoverability">
+				<rdfs:label xml:lang="en">Recoverability</rdfs:label>
+				<rdfs:comment xml:lang="en">Recoverability is the degree to which a service is able to quickly resume a normal state of operation after an unplanned disruption.</rdfs:comment>
+				<skos:definition xml:lang="en">Recoverability is the degree to which a service is able to quickly resume a normal state of operation after an unplanned disruption.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Recoverability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Reliability">
+				<rdfs:label xml:lang="en">Reliability</rdfs:label>
+				<rdfs:comment xml:lang="en">Reliability reflects measures of how a service operates without failure under
+given conditions during a given time period.</rdfs:comment>
+				<skos:definition xml:lang="en">Reliability reflects measures of how a service operates without failure under
+given conditions during a given time period.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Reliability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Resiliency">
+				<rdfs:label xml:lang="en">Resiliency</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a service to continue to operate properly in the event of a failure in
+one or more of its components.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a service to continue to operate properly in the event of a failure in
+one or more of its components.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Resiliency</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Stability">
+				<rdfs:label xml:lang="en">Stability</rdfs:label>
+				<rdfs:comment xml:lang="en">The degree to which the service is resistant to change, deterioration, or displacement.</rdfs:comment>
+				<skos:definition xml:lang="en">The degree to which the service is resistant to change, deterioration, or displacement.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Stability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Serviceability">
+				<rdfs:label xml:lang="en">Serviceability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ease and efficiency of performing maintenance and correcting problems with the service.</rdfs:comment>
+				<skos:definition xml:lang="en">The ease and efficiency of performing maintenance and correcting problems with the service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Serviceability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Assurance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/Financial">
+		<rdfs:label xml:lang="en">Financial</rdfs:label>
+		<rdfs:comment xml:lang="en">The amount of money spent on the service by the client.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Acquisition">
+				<rdfs:label xml:lang="en">Acquisition</rdfs:label>
+				<rdfs:comment xml:lang="en">Any client costs to acquire the rights and ability to use a service and to move from an existing service to the new one.</rdfs:comment>
+				<skos:definition xml:lang="en">Any client costs to acquire the rights and ability to use a service and to move
+from an existing service to the new one.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Acquisition</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Financial" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/OngoingCost">
+				<rdfs:label xml:lang="en">On-going Cost</rdfs:label>
+				<rdfs:comment xml:lang="en">The client cost to operate a service. This includes both recurring flat costs (e.g.,
+monthly access fees) and usage-based costs.</rdfs:comment>
+				<skos:definition xml:lang="en">The client cost to operate a service. This includes both recurring flat costs (e.g.,
+monthly access fees) and usage-based costs.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>OngoingCost</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Financial" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Profit">
+				<rdfs:label xml:lang="en">Profit</rdfs:label>
+				<rdfs:comment xml:lang="en">Arrangement between client and provider(s) under which costs or profits of a
+service are shared by the involved parties, according to an agreed upon formula.</rdfs:comment>
+				<skos:definition xml:lang="en">Arrangement between client and provider(s) under which costs or profits of a
+service are shared by the involved parties, according to an agreed upon formula.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Profit</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Financial" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/Performance">
+		<rdfs:label xml:lang="en">Performance</rdfs:label>
+		<rdfs:comment xml:lang="en">This category covers the features and functions of the provided services.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Accuracy">
+				<rdfs:label xml:lang="en">Accuracy</rdfs:label>
+				<rdfs:comment xml:lang="en">The extent to which a service adheres to its requirements.</rdfs:comment>
+				<skos:definition xml:lang="en">The extent to which a service adheres to its requirements.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Accuracy</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Performance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Functionality">
+				<rdfs:label xml:lang="en">Functionality</rdfs:label>
+				<rdfs:comment xml:lang="en">The specific features provided by a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The specific features provided by a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Functionality</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Performance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Suitability">
+				<rdfs:label xml:lang="en">Suitability</rdfs:label>
+				<rdfs:comment xml:lang="en">How closely do the capabilities of the service match the needs of the client.</rdfs:comment>
+				<skos:definition xml:lang="en">How closely do the capabilities of the service match the needs of the client.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Suitability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Performance" />
+				<rdf:type rdf:resource="http://purl.org/seerc/seqos/ontology/KPIIndicator" />
+				<rdfs:label xml:lang="en">Suitability</rdfs:label>
+				<rdfs:comment xml:lang="en">How closely do the capabilities of the service match the needs of the client.</rdfs:comment>
+				<skos:definition xml:lang="en">How closely do the capabilities of the service match the needs of the client.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Suitability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Interoperability">
+				<rdfs:label xml:lang="en">Suitability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a service to easily interact with other services (from the same service provider and from other service providers).</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a service to easily interact with other services (from the same service provider and from other service providers).</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Interoperability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Performance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ServiceResponseTime">
+				<rdfs:label xml:lang="en">Service Response Time</rdfs:label>
+				<rdfs:comment xml:lang="en">An indicator of the time between when a service is requested and when the response is available.</rdfs:comment>
+				<skos:definition xml:lang="en">An indicator of the time between when a service is requested and when the response is available.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ServiceResponseTime</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Performance" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/SecurityPrivacy">
+		<rdfs:label xml:lang="en">Security and Privacy</rdfs:label>
+		<rdfs:comment xml:lang="en">This category includes attributes that indicate the effectiveness of a service provider's controls on
+access to services, service data, and the physical facilities from which services are provided.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/AccessControl">
+				<rdfs:label xml:lang="en">Access Control</rdfs:label>
+				<rdfs:comment xml:lang="en">Policies and processes in use by the service provider to ensure that only the provider and client personnel with appropriate status/reasons to make use of or modify data/work products may do so.</rdfs:comment>
+				<skos:definition xml:lang="en">Policies and processes in use by the service provider to ensure that only the provider and client personnel with appropriate status/reasons to make use of or modify data/work products may do so.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>AccessControl</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/GeographicalConstraint">
+				<rdfs:label xml:lang="en">Geographical Constraint</rdfs:label>
+				<rdfs:comment xml:lang="en">The client's constraints on service location based on geography.</rdfs:comment>
+				<skos:definition xml:lang="en">The client's constraints on service location based on geography.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>GeographicalConstraint</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/PoliticalConstraint">
+				<rdfs:label xml:lang="en">Political Constraint</rdfs:label>
+				<rdfs:comment xml:lang="en">The client's constraints on service location based on politics.</rdfs:comment>
+				<skos:definition xml:lang="en">The client's constraints on service location based on geography.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>PoliticalConstraint</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/DataIntegrity">
+				<rdfs:label xml:lang="en">Data Integrity</rdfs:label>
+				<rdfs:comment xml:lang="en">Keeping the data that is created, used, and stored in its correct form so that clients may be confident that it is accurate and valid.</rdfs:comment>
+				<skos:definition xml:lang="en">Keeping the data that is created, used, and stored in its correct form so that clients may be confident that it is accurate and valid.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>DataIntegrity</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/DataPrivacy">
+				<rdfs:label xml:lang="en">Data Privacy</rdfs:label>
+				<rdfs:comment xml:lang="en">Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client.</rdfs:comment>
+				<skos:definition xml:lang="en">Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>DataPrivacy</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/DataLoss">
+				<rdfs:label xml:lang="en">Data Loss</rdfs:label>
+				<rdfs:comment xml:lang="en">Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client.</rdfs:comment>
+				<skos:definition xml:lang="en">Client restrictions on access and use of client data are enforced by the service provider. Any failures of these protections are promptly detected and reported to the client.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>DataLoss</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/EnvironmentSecurity">
+				<rdfs:label xml:lang="en">Physical &amp; Environmental Security</rdfs:label>
+				<rdfs:comment xml:lang="en">Policies and processes in use by the service provider to protect the provider
+facilities from unauthorized access, damage or interference.</rdfs:comment>
+				<skos:definition xml:lang="en">Policies and processes in use by the service provider to protect the provider
+facilities from unauthorized access, damage or interference.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>EnvironmentSecurity</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ProactiveThreat">
+				<rdfs:label xml:lang="en">Proactive Threat &amp;  Vulnerability Management</rdfs:label>
+				<rdfs:comment xml:lang="en">Mechanisms in place to ensure that the service is protected against know
+recurring threats as well as new evolving vulnerabilities.</rdfs:comment>
+				<skos:definition xml:lang="en">Mechanisms in place to ensure that the service is protected against know
+recurring threats as well as new evolving vulnerabilities.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ProactiveThreat</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Retention">
+				<rdfs:label xml:lang="en">Retention/Disposition</rdfs:label>
+				<rdfs:comment xml:lang="en">The service provider’s data retention and disposition processes meet the clients'
+ requirements.</rdfs:comment>
+				<skos:definition xml:lang="en">The service provider’s data retention and disposition processes meet the clients'
+ requirements.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Retention</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Disposition">
+				<rdfs:label xml:lang="en">Retention/Disposition</rdfs:label>
+				<rdfs:comment xml:lang="en">The service provider’s data retention and disposition processes meet the clients'
+ requirements.</rdfs:comment>
+				<skos:definition xml:lang="en">The service provider’s data retention and disposition processes meet the clients'
+ requirements.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Disposition</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/SecurityPrivacy" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<seqos-onto:Component rdf:about="http://purl.org/seerc/seqos/component/Usability">
+		<rdfs:label xml:lang="en">Usability</rdfs:label>
+		<rdfs:comment xml:lang="en">The ease with which a service can be used.</rdfs:comment>
+		<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+		<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+		<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3333</seqos-onto:weight>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Accessibility">
+				<rdfs:label xml:lang="en">Accessibility</rdfs:label>
+				<rdfs:comment xml:lang="en">The degree to which a service is operable by users with disabilities.</rdfs:comment>
+				<skos:definition xml:lang="en">The degree to which a service is operable by users with disabilities.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Accessibility</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/ClientPersonnelRequirements">
+				<rdfs:label xml:lang="en">Client Personnel Requirements</rdfs:label>
+				<rdfs:comment xml:lang="en">The minimum number of personnel satisfying roles, skills, experience, education,
+and certification required of the client to effectively utilize a service.</rdfs:comment>
+				<skos:definition xml:lang="en">The minimum number of personnel satisfying roles, skills, experience, education,
+and certification required of the client to effectively utilize a service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>ClientPersonnelRequirements</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Installability">
+				<rdfs:label xml:lang="en">Client Personnel Requirements</rdfs:label>
+				<rdfs:comment xml:lang="en">Installability characterizes the time and effort required to get a service ready for
+delivery (where applicable).</rdfs:comment>
+				<skos:definition xml:lang="en">Installability characterizes the time and effort required to get a service ready for
+delivery (where applicable).</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Installability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Learnability">
+				<rdfs:label xml:lang="en">Learnability</rdfs:label>
+				<rdfs:comment xml:lang="en">The effort required of users to learn to use the service.</rdfs:comment>
+				<skos:definition xml:lang="en">The effort required of users to learn to use the service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Learnability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Operability">
+				<rdfs:label xml:lang="en">Operability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ability of a service to be easily operated by users.</rdfs:comment>
+				<skos:definition xml:lang="en">The ability of a service to be easily operated by users.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Operability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower rdf:resource="http://purl.org/seerc/seqos/indicator/Suitability" />
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Transparency">
+				<rdfs:label xml:lang="en">Transparency</rdfs:label>
+				<rdfs:comment xml:lang="en">The extent to which users are able to determine when changes in a feature or component of the service occur and whether these changes impact usability.</rdfs:comment>
+				<skos:definition xml:lang="en">The extent to which users are able to determine when changes in a feature or component of the service occur and whether these changes impact usability.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Transparency</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+		<skos:narrower>
+			<seqos-onto:KPIIndicator rdf:about="http://purl.org/seerc/seqos/indicator/Understandability">
+				<rdfs:label xml:lang="en">Understandability</rdfs:label>
+				<rdfs:comment xml:lang="en">The ease with which users can understand the capabilities and operation of the service.</rdfs:comment>
+				<skos:definition xml:lang="en">The ease with which users can understand the capabilities and operation of the service.</skos:definition>
+				<seqos-onto:definition-source rdf:resource="http://csmic.org/wp-content/uploads/2011/09/SMI-Overview-110913_v1F.pdf" />
+				<seqos-onto:definition-provider rdf:resource="http://purl.org/seerc/seqos/organization/CSMIC" />
+				<seqos-onto:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</seqos-onto:weight>
+				<seqos-onto:high-low rdf:resource="http://purl.org/seerc/seqos/ontology/High" />
+				<skos:notation>Understandability</skos:notation>
+				<time:intervalStarts rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalStarts>
+				<time:intervalFinishes rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2013</time:intervalFinishes>
+				<skos:broader rdf:resource="http://purl.org/seerc/seqos/component/Usability" />
+			</seqos-onto:KPIIndicator>
+		</skos:narrower>
+	</seqos-onto:Component>
+	<void:Dataset rdf:about="http://purl.org/seerc/seqos/indicator/ds">
+		<rdfs:label xml:lang="en">SEERC| SEQoS | Indicators</rdfs:label>
+		<rdfs:comment xml:lang="en">Indicators used to retrieve observations per country and year. They can also be taken as measures.</rdfs:comment>
+		<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-05-20</dcterms:created>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-05-20-</dcterms:modified>
+		<dcterms:title xml:lang="en">Indicators of Core SeQoS ontology</dcterms:title>
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:publisher rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/RELATE" />
+		<dcterms:license rdf:resource="http://opendatacommons.org/licenses/by/1.0/" />
+		<void:exampleResource rdf:resource="http://purl.org/seerc/seqos/component/CommunicationsInfrastructure" />
+		<void:uriRegexPattern>http://purl.org/seerc/seqos/indicator/.+</void:uriRegexPattern>
+		<void:vocabulary rdf:resource="http://www.w3.org/2000/01/rdf-schema#" />
+		<void:vocabulary rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+		<foaf:homepage rdf:resource="http://purl.org/seerc/seqos/" />
+	</void:Dataset>
+	<void:Dataset rdf:about="http://purl.org/seerc/seqos/organization/ds">
+		<rdfs:label xml:lang="en">SEERC | SeQoS | Organizations</rdfs:label>
+		<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-20-05</dcterms:created>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-08-31</dcterms:modified>
+		<dcterms:title xml:lang="en">Organiizations dataset involved in the development of Core SeQoS ontology</dcterms:title>
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:publisher rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/project/RELATE" />
+		<dcterms:license rdf:resource="http://opendatacommons.org/licenses/by/1.0/" />
+		<void:exampleResource rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<void:uriRegexPattern>http://purl.org/seerc/seqos/organization/.+</void:uriRegexPattern>
+		<void:vocabulary rdf:resource="http://www.w3.org/2000/01/rdf-schema#" />
+		<void:vocabulary rdf:resource="http://xmlns.com/foaf/0.1/" />
+		<foaf:homepage rdf:resource="http://purl.org/seerc/seqos/" />
+	</void:Dataset>
+	<void:Dataset rdf:about="http://purl.org/seerc/seqos/people/ds">
+		<rdfs:label xml:lang="en">Web Foundation | Web Index | People</rdfs:label>
+		<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-20-05</dcterms:created>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-08-31</dcterms:modified>
+		<dcterms:title xml:lang="en">Core SeQoS ontology</dcterms:title>
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:author rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:publisher rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/organization/SEERC" />
+		<dcterms:contributor rdf:resource="http://purl.org/seerc/seqos/project/RELATE" />
+		<dcterms:license rdf:resource="http://opendatacommons.org/licenses/by/1.0/" />
+		<void:exampleResource rdf:resource="http://purl.org/seerc/seqos/people/Chema" />
+		<void:uriRegexPattern>http://purl.org/seerc/seqos/people/.+</void:uriRegexPattern>
+		<void:vocabulary rdf:resource="http://www.w3.org/2000/01/rdf-schema#" />
+		<void:vocabulary rdf:resource="http://xmlns.com/foaf/0.1/" />
+		<foaf:homepage rdf:resource="http://purl.org/seerc/seqos/" />
+	</void:Dataset>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 

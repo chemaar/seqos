@@ -2,6 +2,7 @@
 @prefix seqos-onto: <http://purl.org/seerc/seqos/ontology/> .
 @prefix seqos-org: <http://purl.org/seerc/seqos/organization/> .
 @prefix seqos-people: <http://purl.org/seerc/seqos/people/> .
+@prefix seqos-project: <http://purl.org/seerc/seqos/project/> .
 @prefix seqos-component:  <http://purl.org/seerc/seqos/component/> .
 @prefix seqos-indicator:  <http://purl.org/seerc/seqos/indicator/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -23,6 +24,8 @@
 @prefix sdmx-code:       <http://purl.org/linked-data/sdmx/2009/code#> .
 @prefix sdmx-subject:    <http://purl.org/linked-data/sdmx/2009/subject#> .
 @prefix time:  <http://www.w3.org/2006/time#> .
+@prefix org:  <http://www.w3.org/ns/org#> .
+@prefix v:  <http://www.w3.org/2006/vcard/ns#> .
 
 <http://purl.org/seerc/seqos/ontology>
     a owl:Ontology;
@@ -34,7 +37,7 @@
     dcterms:title "Core SeQoS ontology"@en;
     dcterms:author seqos-people:Chema, seqos-org:SEERC ;
     dcterms:publisher  seqos-people:Chema;
-    dcterms:contributor  seqos-org:SEERC, seqos-org:RELATE ;
+    dcterms:contributor  seqos-org:SEERC, seqos-project:RELATE ;
     dcterms:license <http://opendatacommons.org/licenses/by/1.0/> .
 
 
@@ -1174,11 +1177,107 @@ seqos-indicator:Understandability a seqos-onto:KPIIndicator ;
 
 
 ### Organizations
+seqos-org:ds
+      a       void:Dataset ;
+      rdfs:label "SEERC | SeQoS | Organizations"@en ;
+      dcterms:created "2012-20-05"^^xsd:date;
+      dcterms:modified "2012-08-31"^^xsd:date;
+      dcterms:title "Organiizations dataset involved in the development of Core SeQoS ontology"@en;
+      dcterms:author seqos-people:Chema, seqos-org:SEERC ;
+      dcterms:publisher  seqos-people:Chema;
+      dcterms:contributor  seqos-org:SEERC, seqos-project:RELATE ;
+      dcterms:license <http://opendatacommons.org/licenses/by/1.0/> ;
+      void:exampleResource seqos-org:SEERC;
+      void:uriRegexPattern
+              "http://purl.org/seerc/seqos/organization/.+" ;
+      void:vocabulary  rdfs: , foaf: ;
+      foaf:homepage <http://purl.org/seerc/seqos/>.
+
+
+seqos-org:SEERC  a org:Organization;
+ rdfs:label "South East Research European Center"@en;
+ org:identifier "SEERC";
+ foaf:homepage  <http://www.seerc.org>;
+.
+
+
+
+seqos-org:SEERC a  org:Organization ;
+  rdfs:label "South East Research European Center"@en ;
+  rdfs:comment "South East Research European Center at the City College, an International Faculty of the University of Sheffield"@en ;            
+  org:identifier "SEERC"@en;
+  foaf:homepage <http://www.seerc.org>;
+  org:hasSite [
+ 	rdfs:label "South East Research European Center"@en ;
+ 	org:siteAddress [
+		  v:fn "South East Research European Center" ;
+		  v:org [ v:organisation-name "City College, an International Faculty of the University of Sheffield"@en  ;
+			  v:organisation-unit "South East Research European Center"@en  ] ;
+		  v:adr [ rdf:type v:Work ;
+			  v:country-name "Greece"@en  ;
+			  v:locality "Thessaloniki"@en  ;
+			  v:postal-code "54622" ;
+			  v:street-address "24 Proxenou Koromila Street" ] ;
+		  v:geo [ v:latitude "40.630703" ;
+			  v:longitude "22.944013" ] ;
+		  v:tel [ rdf:type v:Fax, v:Work ;
+			  rdf:value "+30 2310 253477"] ; 
+		  v:email <mailto:contact@seerc.org> ;
+		  v:logo <http://www.seerc.org/templates/seerc/images/seerc-logo-no-grad.png> .		
+ 		];
+
+   ].
+
+
+### People
+
+
+seqos-people:ds
+      a       void:Dataset ;
+      rdfs:label "Web Foundation | Web Index | People"@en ;
+      dcterms:created "2012-20-05"^^xsd:date;
+      dcterms:modified "2012-08-31"^^xsd:date;
+      dcterms:title "Core SeQoS ontology"@en;
+      dcterms:author seqos-people:Chema, seqos-org:SEERC ;
+      dcterms:publisher  seqos-people:Chema;
+      dcterms:contributor  seqos-org:SEERC, seqos-project:RELATE ;
+      dcterms:license <http://opendatacommons.org/licenses/by/1.0/> ;
+      void:exampleResource seqos-people:Chema;
+      void:uriRegexPattern
+              "http://purl.org/seerc/seqos/people/.+" ;
+      void:vocabulary  rdfs: , foaf: ;
+      foaf:homepage <http://purl.org/seerc/seqos/>.
+
+seqos-people:Chema a foaf:Person;
+	foaf:depiction <http://www.weso.es/img/joseMaria.jpg>;
+	foaf:family_name "Alvarez Rodríguez";
+	foaf:givenname "Jose María";
+	foaf:homepage <http://www.josemalvarez.es>;
+	foaf:name "Jose María";
+	foaf:nick "chema";
+	foaf:title "Dr.";
+	org:memberOf seqos-org:SEERC, seqos-project:RELATE;
+	foaf:workInfoHomepage <http://www.weso.es/Contents/about>;
+	foaf:workplaceHomepage <http://www.weso.es/>;
+	rdfs:seeAlso <http://www.josemalvarez.es/foaf.rdf#me>.
+
 
 
 ### Projects
 
 
+seqos-project:RELATE  a org:Organization;
+ rdfs:label "RELATE"@en;
+ rdfs:comment "TO-DO it is a DOAP project"@en;
+ org:identifier "RELATE";
+ foaf:homepage  <http://www.relate-itn.eu/>;
+.
 
+seqos-org:CSMIC  a org:Organization;
+ rdfs:label "Service Measurement Index Version 1.0"@en;
+ rdfs:comment "TO-DO it is a DOAP project"@en;
+ org:identifier "CSMIC";
+ foaf:homepage  <http://csmic.org/>;
+.
 
 
