@@ -29,7 +29,7 @@
     rdfs:comment "This is the first version of the SeQoS taxonomy for representing QoS indicators and modeling an index."@en;
     dcterms:created "2012-20-05"^^xsd:date;
     dcterms:modified "2012-08-31"^^xsd:date;
-    dcterms:title "Core Webindex ontology"@en;
+    dcterms:title "Core SeQoS ontology"@en;
     dcterms:author seqos-people:Chema, seqos-org:SEERC ;
     dcterms:publisher  seqos-people:Chema;
     dcterms:contributor  seqos-org:SEERC, seqos-org:RELATE ;
@@ -82,6 +82,112 @@ seqos-onto:KPIExternalIndicator a owl:Class, rdfs:Class;
 	rdfs:comment "This indicator is established by third parties but its observations are not part of a component."@en;
 
 .
+
+###  Taxonomy of potential values
+
+seqos-onto:High a skos:Concept; 
+	rdfs:label "High"@en; 
+	rdfs:comment "A high value is preferred than a lower one"@en;
+. 
+
+seqos-onto:Low a skos:Concept; 
+	rdfs:label "Low"@en; 
+	rdfs:comment "A low value is preferred than a higher one"@en;
+. 
+
+
+#################################################################
+#
+#    Properties
+#
+#################################################################
+
+### Metadata of observations: indicator|component, value, when, who
+
+
+seqos-onto:ref-type a rdf:Property, qb:DimensionProperty; 
+	rdfs:label "URI to an Index, Component or Indicator"@en; 
+	rdfs:range skos:Concept; 
+ .
+
+
+seqos-onto:value a owl:ObjectProperty, qb:MeasureProperty;
+	rdfs:label "Observation's value"@en; 
+	rdfs:comment "Values should be accessed through a proxy class"@en;
+	rdfs:subPropertyOf sdmx-measure:obsValue; 
+.
+
+seqos-onto:ref-period  a rdf:Property, qb:DimensionProperty;
+	rdfs:label "Period"@en;
+	rdfs:comment "The value of an observation can be related to a time period instead of a timestamp."@en;
+	rdfs:subPropertyOf sdmx-dimension:ref-period;
+	rdfs:range interval:Interval;
+	qb:concept sdmx-concept:ref-period . 
+
+
+seqos-onto:timestamp a owl:ObjectProperty, rdf:Property ;
+	rdfs:label "Timestamp of an observation"@en ;
+	rdfs:comment "It is used to specify the precise moment in which the observation has been generated."@en ;
+.
+
+
+seqos-onto:md5-checksum  a owl:ObjectProperty, rdf:Property ;
+	rdfs:label "MD5 Checksum of an observation"@en ;
+	rdfs:comment "It is calculated generating the MD5 hash of indicator, type of dataset, provider code, timestamp, value and SEQOS (all fields separated by #). "@en ;
+	rdfs:comment "Accuracy#Raw#SalesForce#1111111#SEQOS = afb91eeb723240b2b07e435156b1ee4b"@en;
+.
+
+
+seqos-onto:obsStatus-N a skos:Concept, sdmx-concept:Concept, sdmx-code:ObsStatus;
+    rdfs:label "Normalised status"@en;
+    skos:topConceptOf sdmx-code:obsStatus;
+    skos:inScheme     sdmx-code:obsStatus;
+    skos:prefLabel "Normalised"@en ;
+    skos:notation "N" ;
+    skos:definition "It is used when an observation status is normalised."@en ; 
+.
+
+### Metadata of definitions providers
+
+seqos-onto:ref-definition  a owl:ObjectProperty, rdf:Property;
+	rdfs:label "ref-definition"@en;
+	rdfs:comment "URI to the definition of some component or indicator"@en;
+. 
+
+seqos-onto:ref-provider  a owl:ObjectProperty, rdf:Property;
+	rdfs:subPropertyOf  dcterms:source;
+	rdfs:label "provider-link"@en;
+	rdfs:comment "URI to the provider of a definition"@en;
+. 
+
+
+### Metadata of taxonomy
+
+seqos-onto:high-low  a owl:ObjectProperty, rdf:Property;
+	rdfs:label "high-low"@en;
+	rdfs:comment "High/Low which is the best value?"@en; 
+	rdfs:range skos:Concept; 
+.
+
+
+seqos-onto:weight a owl:ObjectProperty, qb:MeasureProperty;
+	rdfs:label "Weight value of an indicator or component"@en; 
+	rdfs:domain skos:Concept; 
+	rdfs:subPropertyOf sdmx-measure:obsValue; 
+.
+
+
+seqos-onto:data-range a owl:ObjectProperty, rdf:Property;
+	rdfs:label "data-range"@en;
+	rdfs:comment "Range of data"@en; 
+	rdfs:range xsd:string; 
+. 
+
+
+
+
+
+
 
 
 
