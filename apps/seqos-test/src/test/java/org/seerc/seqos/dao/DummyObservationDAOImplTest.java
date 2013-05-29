@@ -12,7 +12,7 @@ public class DummyObservationDAOImplTest {
 	public void testCreateObservations() {
 		ObservationDAO dao = new DummyObservationDAOImpl();
 		ListObservationTO status = dao.getObservations();
-		Assert.assertEquals(10, status.getObservations().size());
+		Assert.assertEquals(2, status.getObservations().size());
 	}
 
 }
