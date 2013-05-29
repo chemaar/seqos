@@ -10,23 +10,23 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "status")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "status", propOrder = {
-    "observations"
+    "observation"
 })
 public class ListObservationTO {
 
-	private List<ObservationTO> observations;
+	private List<ObservationTO> observation;
 
 	public List<ObservationTO> getObservations() {
-		return observations;
+		return observation;
 	}
 
 	public void setObservations(List<ObservationTO> observations) {
-		this.observations = observations;
+		this.observation = observations;
 	}
 
 	public ListObservationTO(List<ObservationTO> observations) {
 		super();
-		this.observations = observations;
+		this.observation = observations;
 	}
 
 	public ListObservationTO() {
@@ -39,7 +39,7 @@ public class ListObservationTO {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((observations == null) ? 0 : observations.hashCode());
+				+ ((observation == null) ? 0 : observation.hashCode());
 		return result;
 	}
 
@@ -52,17 +52,17 @@ public class ListObservationTO {
 		if (getClass() != obj.getClass())
 			return false;
 		ListObservationTO other = (ListObservationTO) obj;
-		if (observations == null) {
-			if (other.observations != null)
+		if (observation == null) {
+			if (other.observation != null)
 				return false;
-		} else if (!observations.equals(other.observations))
+		} else if (!observation.equals(other.observation))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "ListObservationTO [observations=" + observations + "]";
+		return "ListObservationTO [observations=" + observation + "]";
 	}
 
 
