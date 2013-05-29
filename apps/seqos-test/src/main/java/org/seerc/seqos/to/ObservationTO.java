@@ -1,5 +1,24 @@
 package org.seerc.seqos.to;
 
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+@XmlRootElement(name = "ObservationTO")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "ObservationTO", propOrder = {
+    "label",
+    "comment",
+    "timestamp",
+    "md5",
+    "uriProvider",
+    "observationStatus",
+    "indicator",
+    "value"
+})
 public class ObservationTO {
 
 	private String label;

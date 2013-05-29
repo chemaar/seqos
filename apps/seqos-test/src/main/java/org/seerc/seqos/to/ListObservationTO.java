@@ -2,6 +2,16 @@ package org.seerc.seqos.to;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "status")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "status", propOrder = {
+    "observations"
+})
 public class ListObservationTO {
 
 	private List<ObservationTO> observations;
