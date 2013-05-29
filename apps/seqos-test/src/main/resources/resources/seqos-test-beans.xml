@@ -2,9 +2,14 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
+	<bean id="IndicatorDAO" class="org.seerc.seqos.dao.DummyIndicatorDAOImpl" lazy-init="true">
+
+	</bean>
 
 	<bean id="ObservationDAO" class="org.seerc.seqos.dao.DummyObservationDAOImpl" lazy-init="true">
-
+  		<constructor-arg>
+      		<ref bean="IndicatorDAO" />
+         </constructor-arg>
 	</bean>
 
 

@@ -3,24 +3,35 @@ package org.seerc.seqos.dao;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.seerc.seqos.to.IndicatorTO;
 import org.seerc.seqos.to.ListObservationTO;
 import org.seerc.seqos.to.ObservationTO;
+import org.seerc.seqos.utils.ApplicationContextLocator;
 import org.seerc.seqos.utils.MD5Utils;
 import org.seerc.seqos.utils.StatusUtils;
 
 public class DummyObservationDAOImpl implements ObservationDAO{
 
-	private static final String HTTP_PURL_ORG_SEERC_SEQOS_INDICATOR_SERVICE_RESPONSE_TIME = "http://purl.org/seerc/seqos/indicator/ServiceResponseTime";
-	private static final int MAX = 10;
+	private IndicatorDAO indicatorDAO;
 
+	public DummyObservationDAOImpl(){
+		this.indicatorDAO = (IndicatorDAO) ApplicationContextLocator.getApplicationContext().getBean(IndicatorDAO.class.getSimpleName());
+	}
+	
+	public DummyObservationDAOImpl(IndicatorDAO indicatorDAO){
+		this.indicatorDAO = indicatorDAO;
+	}
+	
+	
+	
 	public ListObservationTO getObservations() {
 		List<ObservationTO> observations = new LinkedList<ObservationTO>();
-		for(int i = 0; i<MAX; i++){
-			//FIXME: select indicator from a list
+		List<IndicatorTO> indicators = this.indicatorDAO.listIndicators().getIndicator();
+		for(IndicatorTO indicator:indicators){
 			observations.add(createObservationTO(
-					HTTP_PURL_ORG_SEERC_SEQOS_INDICATOR_SERVICE_RESPONSE_TIME,
+					indicator.getUri(),
 					StatusUtils.NORMAL));
-		}
+		}		
 		return new ListObservationTO(observations);		
 	}
 	
