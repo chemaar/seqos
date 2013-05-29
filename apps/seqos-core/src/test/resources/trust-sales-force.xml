@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" version="2.0">
+  <channel>
+    <title>Salesforce.com System Status and Alerts</title>
+    <link>http://trust.salesforce.com</link>
+    <description>Real-time updates from trust.salesforce.com on alerts, availability and system health</description>
+    <pubDate>Sun, 26 May 2013 16:45:00 GMT</pubDate>
+    <dc:date>2013-05-26T16:45:00Z</dc:date>
+    <item>
+      <title>Alert: [ NA11 ] On 26 May, 2013, the salesforce.com Technology team encountered an issue while performing the announced planned maintenance on the NA11 instance. This issue resulted in a delay to the completion of the planned maintenance by two hours and seven minutes, from 09:00 UTC to 11:07 UTC. During this time customers of the NA11 instance were unable to access the Salesforce application, and were presented with a scheduled maintenance notification page.</title>
+      <link>http://trust.salesforce.com/trust/status</link>
+      <description>The delay resulted from an unexpected error while starting the database tier after the planned maintenance had completed. The root cause of the error is, at this time, still under investigation.&#xD;
+&#xD;
+Actions to prevent future incidents: The salesforce.com Technology Team:&#xD;
+-	Is working with our database vendor to investigate the root cause of the error</description>
+      <pubDate>Sun, 26 May 2013 16:45:00 GMT</pubDate>
+      <guid>http://trust.salesforce.com/trust/status</guid>
+      <dc:date>2013-05-26T16:45:00Z</dc:date>
+    </item>
+    <item>
+      <title>Alert: [ NA11 ] On May 12, 2013, the salesforce.com Technology Team encountered an issue while performing the announced planned maintenance on the NA11 instance. This issue resulted in a delay to the completion of the planned maintenance by one hour and forty-seven minutes, from 11:00 UTC to 12:47 UTC. We thank you for your continued business and patience.</title>
+      <link>http://trust.salesforce.com/trust/status</link>
+      <description>The delay resulted from an unexpected fault within the storage tier. The root cause of the fault is, at this time, still under investigation.&#xD;
+&#xD;
+Actions to Prevent Future Incidents:&#xD;
+The salesforce.com Technology Team is taking the following actions:&#xD;
+- Working to determine the cause of the storage fault</description>
+      <pubDate>Sun, 12 May 2013 18:50:00 GMT</pubDate>
+      <guid>http://trust.salesforce.com/trust/status</guid>
+      <dc:date>2013-05-12T18:50:00Z</dc:date>
+    </item>
+    <item>
+      <title>Alert: [ NA11 ] On May 10 2013, the salesforce.com Technology Team observed a performance degradation issue affecting the NA11 instance. The problem began at 14:10 UTC and was resolved by 14:12 UTC. During this time, customers on the NA11 instance may have experienced slow performance or intermittent errors while accessing the Salesforce application. Thank you for your continued business and patience during this situation.</title>
+      <link>http://trust.salesforce.com/trust/status</link>
+      <description>The root cause of the incident is under investigation</description>
+      <pubDate>Fri, 10 May 2013 18:58:00 GMT</pubDate>
+      <guid>http://trust.salesforce.com/trust/status</guid>
+      <dc:date>2013-05-10T18:58:00Z</dc:date>
+    </item>
+  </channel>
+</rss>
+
