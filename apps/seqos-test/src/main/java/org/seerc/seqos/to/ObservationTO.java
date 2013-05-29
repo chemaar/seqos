@@ -5,7 +5,7 @@ public class ObservationTO {
 	private String label;
 	private String comment;
 	private long timestamp;
-	private String md5;
+	private String md5 = "";
 	private String uriProvider;
 	private String observationStatus;
 	private String indicator;
