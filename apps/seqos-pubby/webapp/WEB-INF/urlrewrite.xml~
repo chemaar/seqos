@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<!DOCTYPE urlrewrite   PUBLIC "-//tuckey.org//DTD UrlRewrite 2.6//EN"
+"webapps/webindex/WEB-INF/urlrewrite2.6.dtd">
+<urlrewrite>
+
+
+<rule>
+    <from>^/ontology[(\s)|(\/)]*$</from>
+    <to type="redirect">/datasets/webindex/webindex-onto.ttl</to>
+</rule>
+        
+
+<rule>
+    <from>^/webindex[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/index/ds</to>
+</rule>
+
+
+
+<rule>
+    <from>^/index[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/index/ds</to>
+</rule>
+
+<rule>
+    <from>^/component[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/component/ds</to>
+</rule>
+
+<rule>
+    <from>^/indicator[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/indicator/ds</to>
+</rule>
+
+<rule>
+    <from>^/slice[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/slice/ds</to>
+</rule>
+
+<rule>
+    <from>^/dsd[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/dsd/ds</to>
+</rule>
+
+<rule>
+    <from>^/dataset[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/dataset/ds</to>
+</rule>
+
+
+<rule>
+    <from>^/observation[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/observation/ds</to>
+</rule>
+
+<rule>
+    <from>^/observation/external[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/observation/external/ds</to>
+</rule>
+
+
+<rule>
+    <from>^/indicator/external[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/indicator/external/ds</to>
+</rule>
+
+
+<rule>
+    <from>^/area[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/area/ds</to>
+</rule>
+
+<rule>
+    <from>^/area/region[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/area/region/ds</to>
+</rule>
+
+<rule>
+    <from>^/area/country[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/area/country/ds</to>
+</rule>
+        
+<rule>
+    <from>^/organization[(\s)|(\/)]*$</from>
+    <to type="redirect">/webindex/organization/ds</to>
+</rule>
+
+
+
+</urlrewrite>
