@@ -1,4 +1,4 @@
-SeQOS (Semantic Enabled Quality of Service managemen)
+SeQOS (Semantic Enabled Quality of Service management)
 =====
 
 This is a research project in the context of the FP7 RELATE ITN with the aim of monitoring cloud services from a quality 
