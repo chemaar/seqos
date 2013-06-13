@@ -169,6 +169,10 @@ public class ObservationTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public void setTimestamp(String evaluate) {
+		this.timestamp = Long.valueOf(evaluate);
+		
+	}
 	
 	
 

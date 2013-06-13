@@ -11,9 +11,6 @@ public class DummyObservationDAOImpl implements ObservationDAO{
 	public DummyObservationDAOImpl(){
 	}
 	
-	
-	
-	
 	public List<ObservationTO> getObservations() {
 		List<ObservationTO> observations = new LinkedList<ObservationTO>();
 		return observations;

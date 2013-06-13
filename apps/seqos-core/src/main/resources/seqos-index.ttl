@@ -1,0 +1,135 @@
+@prefix rdfindex:  <http://purl.org/rdfindex/ontology/> .
+@prefix seqos-onto: <http://purl.org/seerc/seqos/ontology/> .
+@prefix seqos-org: <http://purl.org/seerc/seqos/organization/> .
+@prefix seqos-people: <http://purl.org/seerc/seqos/people/> .
+@prefix seqos-project: <http://purl.org/seerc/seqos/project/> .
+@prefix seqos-component:  <http://purl.org/seerc/seqos/component/> .
+@prefix seqos-indicator:  <http://purl.org/seerc/seqos/indicator/> .
+@prefix seqos-index:  <http://purl.org/seerc/seqos/index/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix sdmx-concept:    <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension:  <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure:    <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-metadata:   <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix sdmx-code:       <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix sdmx-subject:    <http://purl.org/linked-data/sdmx/2009/subject#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qb:      <http://purl.org/linked-data/cube#> .
+@prefix interval:  <http://www.w3.org/2006/time#> .
+@prefix lg:  <http://linkedgeodata.org/ontology/> .
+@prefix dbpedia-res:  <http://dbpedia.org/resource/> .
+
+
+
+seqos-index:TheNaiveCloudIndex a rdfindex:Index;
+	rdfs:label 	"The Naive Cloud Index"@en;
+	rdfindex:type 	rdfindex:Quantitative;
+	rdfindex:aggregates [ 		
+		rdfindex:aggregation-operator rdfindex:Mean;
+		rdfindex:part-of seqos-component:Performance ;
+		rdfindex:part-of seqos-component:Financial ;
+	];
+	qb:structure 	seqos-index:TheNaiveCloudIndexDSD ;
+.
+
+#
+# Components
+#
+seqos-component:Performance  a rdfindex:Component;
+	rdfs:label 	"Performance"@en;
+	rdfindex:type 	rdfindex:Quantitative;
+	rdfindex:weight  1;
+	rdfindex:aggregates [ 
+		rdfindex:aggregation-operator rdfindex:Min;
+		rdfindex:part-of seqos-indicator:ServiceResponseTime;
+	];
+	qb:structure 	seqos-component:PerformanceDSD ;  
+.
+
+seqos-component:Financial a rdfindex:Component;
+	rdfs:label 	"Financial"@en;
+	rdfindex:type 	rdfindex:Quantitative;
+	rdfindex:weight  1;
+	rdfindex:aggregates [ 
+		rdfindex:aggregation-operator rdfindex:Min;
+		rdfindex:part-of seqos-indicator:OngoingCost;
+	];
+	qb:structure 	seqos-component:FinancialDSD ;  
+.
+
+#
+# Indicators
+#
+
+seqos-indicator:ServiceResponseTime a rdfindex:Indicator;
+	rdfs:label 	"Service Response Time"@en;
+	rdfs:comment 	"An indicator of the time between when a service is requested and when the response is available."@en;
+	rdfindex:type 	rdfindex:Quantitative;	
+	qb:structure 	seqos-indicator:ServiceResponseTimeDSD ;  
+	sdmx-attribute:unitMeasure dbpedia-res:Time ;
+.
+
+
+ seqos-indicator:OngoingCost a rdfindex:Indicator;
+	rdfs:label 	"Ongoing-cost"@en;
+	rdfs:comment 	"The client cost to operate a service. This includes both recurring flat costs (e.g.,
+monthly access fees) and usage-based costs."@en;
+	rdfindex:type 	rdfindex:Quantitative;	
+	qb:structure 	seqos-indicator:OngoingCostDSD ;  
+	sdmx-attribute:unitMeasure dbpedia-res:Time ;
+.
+
+
+#
+# Since an index, component or indicator is a qb:dataSet it is necessary to define their structure
+#
+
+
+seqos-index:TheNaiveCloudIndexDSD a qb:DataStructureDefinition;
+    qb:component    [qb:dimension rdfindex:ref-area],
+        [qb:dimension rdfindex:ref-year],
+        [qb:measure   rdfindex:value],
+        [qb:attribute sdmx-attribute:unitMeasure];
+.
+
+
+
+seqos-component:PerformanceDSD a qb:DataStructureDefinition;
+    qb:component    [qb:dimension rdfindex:ref-area],
+        [qb:dimension rdfindex:ref-year],
+        [qb:measure   rdfindex:value],
+        [qb:attribute sdmx-attribute:unitMeasure];
+.
+
+
+seqos-component:FinancialDSD a qb:DataStructureDefinition;
+    qb:component    [qb:dimension rdfindex:ref-area],
+        [qb:dimension rdfindex:ref-year],
+        [qb:measure   rdfindex:value],
+        [qb:attribute sdmx-attribute:unitMeasure];
+.
+
+seqos-indicator:ServiceResponseTimeDSD  a qb:DataStructureDefinition;
+    qb:component    [qb:dimension rdfindex:ref-area],
+        [qb:dimension rdfindex:ref-year],
+        [qb:measure   rdfindex:value],
+        [qb:attribute sdmx-attribute:unitMeasure];
+.
+
+seqos-indicator:OngoingCostDSD a qb:DataStructureDefinition;
+    qb:component    [qb:dimension rdfindex:ref-area],
+        [qb:dimension rdfindex:ref-year],
+        [qb:measure   rdfindex:value],
+        [qb:attribute sdmx-attribute:unitMeasure];
+.
+
+
+
