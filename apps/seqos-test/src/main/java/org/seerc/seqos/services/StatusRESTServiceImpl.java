@@ -24,7 +24,7 @@ public class StatusRESTServiceImpl implements Status {
 	@Path("status")
 	@ProduceMime({"text/plain", "application/xml", "application/json"})
 	public ListObservationTO status() {
-		try{
+		try{			
 			return business.status();
 		}catch(Exception e){
 			 throw new WebApplicationException(Response.Status.BAD_REQUEST);

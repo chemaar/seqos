@@ -39,10 +39,10 @@ public class DummyObservationDAOImpl implements ObservationDAO{
 		ObservationTO observation = new ObservationTO();
 		observation.setComment("Auto-generated comment");
 		observation.setLabel("Auto-generated label");
-		observation.setIndicator(indicator);
-		observation.setTimestamp(System.nanoTime());
+		observation.setUriDataset(indicator);
+		observation.setTimeStamp(System.nanoTime());
 		observation.setMd5(MD5Utils.generate(observation.toString()));
-		observation.setValue(generateRandomValue());
+		observation.setValue(String.valueOf(generateRandomValue()));
 		observation.setObservationStatus(normal.name());
 		return observation;
 	}
